@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stay — VARENA</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #11120f;
+            color: #f1ede4;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .stay-hero {
+            min-height: 92vh;
+
+            display: flex;
+            align-items: flex-end;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6,7,5,.82),
+                    rgba(6,7,5,.12)
+                ),
+                url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2600&q=90")
+                center/cover;
+        }
+
+        .stay-hero-content {
+            width: min(1400px, 90%);
+            margin: auto;
+
+            padding-bottom: 105px;
+        }
+
+        .stay-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(5rem, 13vw, 13rem);
+
+            font-weight: 400;
+
+            line-height: .7;
+
+            letter-spacing: -.07em;
+
+            margin: 25px 0;
+        }
+
+        .stay-hero p {
+            max-width: 580px;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.9;
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .stay-intro {
+            padding: 150px 5%;
+
+            background: #e8e1d4;
+
+            color: #181814;
+
+            text-align: center;
+        }
+
+        .stay-intro h2 {
+            max-width: 1050px;
+
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .78;
+        }
+
+        .stay-intro p {
+            max-width: 650px;
+
+            margin: 45px auto 0;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        /* =========================
+           BOOKING BAR
+        ========================= */
+
+        .booking-bar {
+            background: #171813;
+
+            padding: 28px 5%;
+
+            border-top:
+                1px solid rgba(255,255,255,.08);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+        }
+
+        .booking-form {
+            max-width: 1300px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr 1fr auto;
+
+            gap: 12px;
+        }
+
+        .booking-field {
+            padding: 17px 18px;
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            background: #20211c;
+        }
+
+        .booking-field label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #777a70;
+
+            font-size: .55rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .14em;
+        }
+
+        .booking-field input,
+        .booking-field select {
+            width: 100%;
+
+            box-sizing: border-box;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: #f1ede4;
+
+            font: inherit;
+
+            font-size: .75rem;
+        }
+
+        .booking-field option {
+            background: #181914;
+        }
+
+        .booking-button {
+            border: none;
+
+            background: #c7a96b;
+
+            color: #171813;
+
+            padding: 0 28px;
+
+            cursor: pointer;
+
+            font-size: .62rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+
+            transition: .3s ease;
+        }
+
+        .booking-button:hover {
+            background: #e0c58b;
+        }
+
+        .booking-message {
+            max-width: 1300px;
+
+            margin: 14px auto 0;
+
+            color: #c7a96b;
+
+            font-size: .65rem;
+        }
+
+        /* =========================
+           ROOMS
+        ========================= */
+
+        .rooms {
+            padding: 150px 5%;
+
+            background: #f1ede4;
+
+            color: #181814;
+        }
+
+        .rooms-heading {
+            max-width: 850px;
+
+            margin-bottom: 75px;
+        }
+
+        .rooms-heading h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .76;
+
+            margin: 20px 0;
+        }
+
+        .rooms-heading p {
+            max-width: 600px;
+
+            color: #77736a;
+
+            line-height: 1.8;
+        }
+
+        .room-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 35px;
+        }
+
+        .room {
+            display: grid;
+
+            grid-template-columns:
+                1.2fr 1fr;
+
+            min-height: 600px;
+
+            background: #e3dccf;
+
+            overflow: hidden;
+        }
+
+        .room-image {
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .8s ease;
+        }
+
+        .room:hover .room-image img {
+            transform: scale(1.035);
+        }
+
+        .room-info {
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+        .room-number {
+            color: #9b8254;
+
+            font-size: .58rem;
+
+            letter-spacing: .2em;
+        }
+
+        .room-info h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(3rem, 5vw, 5.5rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+
+            margin: 18px 0;
+        }
+
+        .room-description {
+            max-width: 500px;
+
+            color: #77736a;
+
+            line-height: 1.85;
+
+            font-size: .75rem;
+        }
+
+        .room-details {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            margin-top: 35px;
+
+            border-top:
+                1px solid rgba(20,20,18,.14);
+        }
+
+        .room-detail {
+            padding: 17px 0;
+
+            border-bottom:
+                1px solid rgba(20,20,18,.14);
+
+            font-size: .62rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+        .room-detail:nth-child(odd) {
+            margin-right: 20px;
+        }
+
+        .room-price {
+            margin-top: 35px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 2.2rem;
+        }
+
+        .room-price small {
+            font-family: inherit;
+
+            font-size: .7rem;
+
+            color: #77736a;
+        }
+
+        .room-button {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 15px 25px;
+
+            width: fit-content;
+
+            background: #181914;
+
+            color: #f1ede4;
+
+            text-decoration: none;
+
+            font-size: .6rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+
+            transition: .3s ease;
+        }
+
+        .room-button:hover {
+            background: #9b8254;
+        }
+
+        /* =========================
+           AMENITIES
+        ========================= */
+
+        .amenities {
+            padding: 150px 5%;
+
+            background: #181914;
+        }
+
+        .amenities-grid {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .amenities-image {
+            height: 700px;
+
+            overflow: hidden;
+        }
+
+        .amenities-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .amenities-content h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 7vw, 7rem);
+
+            font-weight: 400;
+
+            line-height: .77;
+
+            margin: 20px 0;
+        }
+
+        .amenities-content p {
+            max-width: 550px;
+
+            color: #85867e;
+
+            line-height: 1.9;
+        }
+
+        .amenity-list {
+            margin-top: 45px;
+
+            max-width: 600px;
+        }
+
+        .amenity {
+            padding: 17px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.1);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: .62rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+        .amenity span:last-child {
+            color: #c7a96b;
+        }
+
+        /* =========================
+           HOUSE RULE / SERVICE
+        ========================= */
+
+        .service {
+            padding: 150px 5%;
+
+            background: #e8e1d4;
+
+            color: #181814;
+
+            text-align: center;
+        }
+
+        .service h2 {
+            max-width: 1000px;
+
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .78;
+        }
+
+        .service > p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        .service-grid {
+            max-width: 1100px;
+
+            margin: 80px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .service-card {
+            padding: 40px 30px;
+
+            border:
+                1px solid rgba(20,20,18,.13);
+
+            text-align: left;
+
+            min-height: 220px;
+        }
+
+        .service-card span {
+            color: #9b8254;
+
+            font-size: .58rem;
+
+            letter-spacing: .2em;
+        }
+
+        .service-card h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 2.2rem;
+
+            font-weight: 400;
+
+            margin: 20px 0 10px;
+        }
+
+        .service-card p {
+            color: #77736a;
+
+            font-size: .72rem;
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           BOOKING CTA
+        ========================= */
+
+        .booking-section {
+            padding: 150px 5%;
+
+            background:
+                linear-gradient(
+                    rgba(7,8,6,.72),
+                    rgba(7,8,6,.86)
+                ),
+                url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=2600&q=90")
+                center/cover;
+        }
+
+        .booking-container {
+            max-width: 950px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .booking-container h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .75;
+
+            margin: 25px 0;
+        }
+
+        .booking-container p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: rgba(255,255,255,.68);
+
+            line-height: 1.9;
+        }
+
+        .booking-summary {
+            max-width: 600px;
+
+            margin: 45px auto 0;
+
+            padding: 30px;
+
+            border:
+                1px solid rgba(255,255,255,.14);
+
+            text-align: left;
+
+            display: none;
+        }
+
+        .booking-summary.active {
+            display: block;
+        }
+
+        .summary-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 13px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+            font-size: .68rem;
+        }
+
+        .summary-total {
+            margin-top: 20px;
+
+            color: #c7a96b;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 2rem;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:1000px) {
+
+            .booking-form {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .booking-button {
+                min-height: 55px;
+            }
+
+            .room {
+                grid-template-columns: 1fr;
+            }
+
+            .room-image {
+                min-height: 500px;
+            }
+
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:650px) {
+
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+
+            .room-info {
+                padding: 35px 25px;
+            }
+
+            .room-details {
+                grid-template-columns: 1fr;
+            }
+
+            .room-detail:nth-child(odd) {
+                margin-right: 0;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="nav scrolled">
+
+    <a href="/" class="logo">
+        VARENA
+    </a>
+
+    <nav class="navlinks">
+
+        <a href="/">Home</a>
+
+        <a href="/stay">
+            Stay
+        </a>
+
+        <a href="/experiences">
+            Experience
+        </a>
+
+        <a href="/dining">
+            Dining
+        </a>
+
+        <a href="/maison">
+            Maison
+        </a>
+
+        <a href="/membership">
+            Membership
+        </a>
+
+    </nav>
+
+    <a
+        href="#booking"
+        class="nav-book"
+    >
+        Reserve
+    </a>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="stay-hero">
+
+    <div class="stay-hero-content">
+
+        <div class="eyebrow">
+            VARENA · STAY
+        </div>
+
+        <h1>
+            Stay<br>
+            slowly.
+        </h1>
+
+        <p>
+            Rooms and suites built around natural
+            materials, mountain air, deep sleep and
+            the luxury of having nowhere else to be.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="stay-intro">
+
+    <div class="eyebrow">
+        The rooms
+    </div>
+
+    <h2>
+        Nothing here
+        needs to impress you.
+    </h2>
+
+    <p>
+        Everything is designed to make you feel good.
+
+        Warm materials. Quiet rooms. Natural light.
+        Comfortable beds. Space to breathe.
+
+        Luxury at VARENA is felt rather than announced.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     BOOKING BAR
+========================= -->
+
+<section class="booking-bar">
+
+    <form
+        class="booking-form"
+        id="availabilityForm"
+    >
+
+        <div class="booking-field">
+
+            <label for="checkin">
+                Check in
+            </label>
+
+            <input
+                type="date"
+                id="checkin"
+                required
+            >
+
+        </div>
+
+
+        <div class="booking-field">
+
+            <label for="checkout">
+                Check out
+            </label>
+
+            <input
+                type="date"
+                id="checkout"
+                required
+            >
+
+        </div>
+
+
+        <div class="booking-field">
+
+            <label for="guests">
+                Guests
+            </label>
+
+            <select id="guests">
+
+                <option value="1">
+                    1 Guest
+                </option>
+
+                <option value="2" selected>
+                    2 Guests
+                </option>
+
+                <option value="3">
+                    3 Guests
+                </option>
+
+                <option value="4">
+                    4 Guests
+                </option>
+
+                <option value="5">
+                    5 Guests
+                </option>
+
+                <option value="6">
+                    6 Guests
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="booking-field">
+
+            <label for="roomType">
+                Room
+            </label>
+
+            <select id="roomType">
+
+                <option value="atlas">
+                    Atlas Room
+                </option>
+
+                <option value="valley">
+                    Valley Suite
+                </option>
+
+                <option value="summit">
+                    Summit Suite
+                </option>
+
+                <option value="villa">
+                    VARENA Private Villa
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="booking-button"
+            type="submit"
+        >
+            Check availability
+        </button>
+
+    </form>
+
+
+    <div
+        class="booking-message"
+        id="bookingMessage"
+    ></div>
+
+</section>
+
+
+<!-- =========================
+     ROOMS
+========================= -->
+
+<section class="rooms">
+
+    <div class="rooms-heading">
+
+        <div class="eyebrow">
+            01 · ROOMS & SUITES
+        </div>
+
+        <h2>
+            Choose your
+            view.
+        </h2>
+
+        <p>
+            Four ways to stay at VARENA.
+            Each room has its own character,
+            but all share the same philosophy:
+            space, silence and comfort.
+        </p>
+
+    </div>
+
+
+    <div class="room-list">
+
+
+        <!-- ATLAS -->
+
+        <article class="room">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=2000&q=90"
+                    alt="Atlas Room"
+                >
+
+            </div>
+
+            <div class="room-info">
+
+                <div class="room-number">
+                    01 · ATLAS
+                </div>
+
+                <h3>
+                    Atlas
+                    Room
+                </h3>
+
+                <p class="room-description">
+                    A quiet room for two with warm wood,
+                    stone details and a wide view toward
+                    the surrounding landscape.
+                </p>
+
+
+                <div class="room-details">
+
+                    <div class="room-detail">
+                        42 M²
+                    </div>
+
+                    <div class="room-detail">
+                        2 GUESTS
+                    </div>
+
+                    <div class="room-detail">
+                        KING BED
+                    </div>
+
+                    <div class="room-detail">
+                        MOUNTAIN VIEW
+                    </div>
+
+                    <div class="room-detail">
+                        PRIVATE TERRACE
+                    </div>
+
+                    <div class="room-detail">
+                        BREAKFAST INCLUDED
+                    </div>
+
+                </div>
+
+
+                <div class="room-price">
+                    2,400 MAD
+                    <small>/ night</small>
+                </div>
+
+                <a
+                    href="#booking"
+                    class="room-button"
+                    data-room="Atlas Room"
+                >
+                    Reserve this room
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- VALLEY -->
+
+        <article class="room">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=90"
+                    alt="Valley Suite"
+                >
+
+            </div>
+
+            <div class="room-info">
+
+                <div class="room-number">
+                    02 · VALLEY
+                </div>
+
+                <h3>
+                    Valley
+                    Suite
+                </h3>
+
+                <p class="room-description">
+                    More space, deeper privacy and
+                    an uninterrupted valley view.
+                    Designed for slow mornings.
+                </p>
+
+
+                <div class="room-details">
+
+                    <div class="room-detail">
+                        68 M²
+                    </div>
+
+                    <div class="room-detail">
+                        2 GUESTS
+                    </div>
+
+                    <div class="room-detail">
+                        KING BED
+                    </div>
+
+                    <div class="room-detail">
+                        VALLEY VIEW
+                    </div>
+
+                    <div class="room-detail">
+                        LIVING AREA
+                    </div>
+
+                    <div class="room-detail">
+                        BREAKFAST INCLUDED
+                    </div>
+
+                </div>
+
+
+                <div class="room-price">
+                    3,600 MAD
+                    <small>/ night</small>
+                </div>
+
+                <a
+                    href="#booking"
+                    class="room-button"
+                    data-room="Valley Suite"
+                >
+                    Reserve this suite
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- SUMMIT -->
+
+        <article class="room">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90"
+                    alt="Summit Suite"
+                >
+
+            </div>
+
+            <div class="room-info">
+
+                <div class="room-number">
+                    03 · SUMMIT
+                </div>
+
+                <h3>
+                    Summit
+                    Suite
+                </h3>
+
+                <p class="room-description">
+                    The highest private suite at VARENA.
+                    Designed around the horizon,
+                    with a fireplace and panoramic views.
+                </p>
+
+
+                <div class="room-details">
+
+                    <div class="room-detail">
+                        95 M²
+                    </div>
+
+                    <div class="room-detail">
+                        2 GUESTS
+                    </div>
+
+                    <div class="room-detail">
+                        KING BED
+                    </div>
+
+                    <div class="room-detail">
+                        PANORAMIC VIEW
+                    </div>
+
+                    <div class="room-detail">
+                        FIREPLACE
+                    </div>
+
+                    <div class="room-detail">
+                        PRIVATE DINING
+                    </div>
+
+                </div>
+
+
+                <div class="room-price">
+                    5,200 MAD
+                    <small>/ night</small>
+                </div>
+
+                <a
+                    href="#booking"
+                    class="room-button"
+                    data-room="Summit Suite"
+                >
+                    Reserve this suite
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- VILLA -->
+
+        <article class="room">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90"
+                    alt="VARENA Private Villa"
+                >
+
+            </div>
+
+            <div class="room-info">
+
+                <div class="room-number">
+                    04 · PRIVATE
+                </div>
+
+                <h3>
+                    VARENA
+                    Villa
+                </h3>
+
+                <p class="room-description">
+                    A private residence within the
+                    VARENA landscape.
+
+                    More space, complete privacy and
+                    a dedicated host.
+                </p>
+
+
+                <div class="room-details">
+
+                    <div class="room-detail">
+                        180 M²
+                    </div>
+
+                    <div class="room-detail">
+                        UP TO 6 GUESTS
+                    </div>
+
+                    <div class="room-detail">
+                        3 BEDROOMS
+                    </div>
+
+                    <div class="room-detail">
+                        PRIVATE POOL
+                    </div>
+
+                    <div class="room-detail">
+                        PRIVATE TERRACE
+                    </div>
+
+                    <div class="room-detail">
+                        DEDICATED HOST
+                    </div>
+
+                </div>
+
+
+                <div class="room-price">
+                    9,500 MAD
+                    <small>/ night</small>
+                </div>
+
+                <a
+                    href="#booking"
+                    class="room-button"
+                    data-room="VARENA Private Villa"
+                >
+                    Reserve the villa
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     AMENITIES
+========================= -->
+
+<section class="amenities">
+
+    <div class="amenities-grid">
+
+        <div class="amenities-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=90"
+                alt="Luxury VARENA interior"
+            >
+
+        </div>
+
+
+        <div class="amenities-content">
+
+            <div class="eyebrow">
+                02 · INCLUDED
+            </div>
+
+            <h2>
+                The details
+                matter.
+            </h2>
+
+            <p>
+                The experience begins before you
+                leave your room.
+
+                Everything necessary is already there,
+                without making the room feel crowded.
+            </p>
+
+
+            <div class="amenity-list">
+
+                <div class="amenity">
+                    <span>
+                        Breakfast
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        High-speed Wi-Fi
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        Mountain water
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        Gym access
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        Sauna
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        Daily housekeeping
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+                <div class="amenity">
+                    <span>
+                        Experience planning
+                    </span>
+
+                    <span>
+                        Included
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICE
+========================= -->
+
+<section class="service">
+
+    <div class="eyebrow">
+        03 · HOSPITALITY
+    </div>
+
+    <h2>
+        Everything
+        happens quietly.
+    </h2>
+
+    <p>
+        The best service isn't the service
+        you notice. It's the service that
+        makes everything feel effortless.
+    </p>
+
+
+    <div class="service-grid">
+
+
+        <article class="service-card">
+
+            <span>
+                01
+            </span>
+
+            <h3>
+                Remembered
+            </h3>
+
+            <p>
+                Preferences are remembered,
+                from your morning coffee to
+                how you like your room prepared.
+            </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+            <span>
+                02
+            </span>
+
+            <h3>
+                Effortless
+            </h3>
+
+            <p>
+                Staff notice what needs to happen
+                without constantly interrupting
+                your experience.
+            </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+            <span>
+                03
+            </span>
+
+            <h3>
+                Human
+            </h3>
+
+            <p>
+                Warm, attentive hospitality without
+                turning every interaction into a performance.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BOOKING
+========================= -->
+
+<section
+    class="booking-section"
+    id="booking"
+>
+
+    <div class="booking-container">
+
+        <div class="eyebrow">
+            04 · RESERVATIONS
+        </div>
+
+        <h2>
+            Your room
+            is waiting.
+        </h2>
+
+        <p>
+            Select your dates and room above.
+            We'll calculate the estimated stay
+            before you continue.
+        </p>
+
+
+        <div
+            class="booking-summary"
+            id="bookingSummary"
+        >
+
+            <div class="summary-row">
+
+                <span>
+                    Room
+                </span>
+
+                <span id="summaryRoom">
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Nights
+                </span>
+
+                <span id="summaryNights">
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Guests
+                </span>
+
+                <span id="summaryGuests">
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="summary-total">
+
+                Estimated total:
+                <span id="summaryTotal">
+                    —
+                </span>
+
+                MAD
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="#"
+            class="btn light"
+            style="margin-top:35px"
+            id="continueBooking"
+        >
+            Continue reservation
+        </a>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    const prices = {
+
+        "Atlas Room": 2400,
+
+        "Valley Suite": 3600,
+
+        "Summit Suite": 5200,
+
+        "VARENA Private Villa": 9500
+
+    };
+
+
+    const roomMap = {
+
+        atlas: "Atlas Room",
+
+        valley: "Valley Suite",
+
+        summit: "Summit Suite",
+
+        villa: "VARENA Private Villa"
+
+    };
+
+
+    const form =
+        document.getElementById(
+            "availabilityForm"
+        );
+
+
+    const message =
+        document.getElementById(
+            "bookingMessage"
+        );
+
+
+    const checkin =
+        document.getElementById(
+            "checkin"
+        );
+
+
+    const checkout =
+        document.getElementById(
+            "checkout"
+        );
+
+
+    const guests =
+        document.getElementById(
+            "guests"
+        );
+
+
+    const roomType =
+        document.getElementById(
+            "roomType"
+        );
+
+
+    const summary =
+        document.getElementById(
+            "bookingSummary"
+        );
+
+
+    const summaryRoom =
+        document.getElementById(
+            "summaryRoom"
+        );
+
+
+    const summaryNights =
+        document.getElementById(
+            "summaryNights"
+        );
+
+
+    const summaryGuests =
+        document.getElementById(
+            "summaryGuests"
+        );
+
+
+    const summaryTotal =
+        document.getElementById(
+            "summaryTotal"
+        );
+
+
+    function calculateNights() {
+
+        const start =
+            new Date(checkin.value);
+
+        const end =
+            new Date(checkout.value);
+
+        const difference =
+            end - start;
+
+        return Math.ceil(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+    }
+
+
+    form.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const nights =
+                calculateNights();
+
+
+            if (!checkin.value ||
+                !checkout.value) {
+
+                message.textContent =
+                    "Please select your dates.";
+
+                return;
+            }
+
+
+            if (nights <= 0) {
+
+                message.textContent =
+                    "Check-out must be after check-in.";
+
+                return;
+            }
+
+
+            const roomName =
+                roomMap[roomType.value];
+
+
+            const price =
+                prices[roomName];
+
+
+            const total =
+                price * nights;
+
+
+            summaryRoom.textContent =
+                roomName;
+
+
+            summaryNights.textContent =
+                nights;
+
+
+            summaryGuests.textContent =
+                guests.value;
+
+
+            summaryTotal.textContent =
+                total.toLocaleString();
+
+
+            summary.classList.add(
+                "active"
+            );
+
+
+            message.textContent =
+                "Availability request prepared. Review your stay below.";
+
+        }
+    );
+
+
+    document.querySelectorAll(
+        ".room-button"
+    ).forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const selected =
+                        this.dataset.room;
+
+
+                    const option =
+                        [...roomType.options]
+                        .find(
+                            option =>
+                                roomMap[
+                                    option.value
+                                ] === selected
+                        );
+
+
+                    if (option) {
+
+                        roomType.value =
+                            option.value;
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    const today =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    checkin.min = today;
+
+    checkout.min = today;
+
+
+    checkin.addEventListener(
+        "change",
+        function() {
+
+            checkout.min =
+                this.value;
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "rooms": [
+    {
+      "id": "garden",
+      "name": "Garden Room",
+      "price": 2400,
+      "currency": "MAD",
+      "description": "Private terrace, natural stone bath and garden access."
+    },
+    {
+      "id": "signature",
+      "name": "Signature Suite",
+      "price": 5800,
+      "currency": "MAD",
+      "description": "Landscape view, deep soaking bath and dedicated host."
+    },
+    {
+      "id": "residence",
+      "name": "Private Residence",
+      "price": 14000,
+      "currency": "MAD",
+      "description": "Secluded residence with private outdoor space and dedicated team."
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1787608382806,
+      "room": "Private Residence",
+      "guests": "2",
+      "arrival": "2026-08-24",
+      "departure": "2034-05-24",
+      "name": "Zakaryae afifi",
+      "email": "afifizakaria125@gmail.com",
+      "experience": "Adventure",
+      "createdAt": "2026-08-24T21:53:02.806Z"
+    }
+  ],
+  "orders": [],
+  "memberships": [],
+  "contacts": []
+}
