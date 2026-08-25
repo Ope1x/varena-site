@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VARENA — Somewhere Else</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #11120f;
+            color: #f1ede4;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .home-hero {
+            min-height: 100vh;
+            position: relative;
+
+            display: flex;
+            align-items: flex-end;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,6,5,.75),
+                    rgba(5,6,5,.12)
+                ),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2600&q=90")
+                center/cover;
+        }
+
+        .hero-content {
+            width: min(1450px, 90%);
+            margin: auto;
+            padding-bottom: 100px;
+        }
+
+        .hero-title {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(6rem, 16vw, 16rem);
+
+            font-weight: 400;
+
+            line-height: .68;
+
+            letter-spacing: -.075em;
+
+            margin: 25px 0;
+        }
+
+        .hero-subtitle {
+            max-width: 550px;
+
+            color: rgba(255,255,255,.72);
+
+            line-height: 1.9;
+
+            font-size: .85rem;
+        }
+
+        .hero-scroll {
+            position: absolute;
+
+            right: 5%;
+            bottom: 40px;
+
+            writing-mode: vertical-rl;
+
+            color: rgba(255,255,255,.6);
+
+            font-size: .58rem;
+
+            letter-spacing: .2em;
+
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           MANIFESTO
+        ========================= */
+
+        .manifesto {
+            padding: 170px 5%;
+
+            background: #e8e1d4;
+
+            color: #181814;
+
+            text-align: center;
+        }
+
+        .manifesto h2 {
+            max-width: 1100px;
+
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+        }
+
+        .manifesto p {
+            max-width: 650px;
+
+            margin: 45px auto 0;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        /* =========================
+           VARENA WORLD
+        ========================= */
+
+        .world {
+            padding: 140px 5%;
+
+            background: #11120f;
+        }
+
+        .world-header {
+            max-width: 850px;
+
+            margin-bottom: 75px;
+        }
+
+        .world-header h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .78;
+
+            margin: 20px 0;
+        }
+
+        .world-header p {
+            max-width: 600px;
+
+            color: #85867e;
+
+            line-height: 1.9;
+        }
+
+        .world-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .world-card {
+            position: relative;
+
+            min-height: 570px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            color: white;
+
+            text-decoration: none;
+        }
+
+        .world-card img {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .8s ease;
+        }
+
+        .world-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .world-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent 30%,
+                    rgba(0,0,0,.85)
+                );
+        }
+
+        .world-card-content {
+            position: relative;
+
+            z-index: 2;
+
+            padding: 35px;
+
+            width: 100%;
+        }
+
+        .world-card-number {
+            color: #d0b273;
+
+            font-size: .6rem;
+
+            letter-spacing: .2em;
+        }
+
+        .world-card h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 3.4rem;
+
+            font-weight: 400;
+
+            margin: 12px 0;
+        }
+
+        .world-card p {
+            max-width: 380px;
+
+            color: rgba(255,255,255,.65);
+
+            line-height: 1.7;
+
+            font-size: .72rem;
+        }
+
+        /* =========================
+           SIGNATURE EXPERIENCE
+        ========================= */
+
+        .signature {
+            min-height: 850px;
+
+            padding: 120px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,8,6,.88),
+                    rgba(7,8,6,.15)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2600&q=90")
+                center/cover;
+        }
+
+        .signature-content {
+            max-width: 720px;
+        }
+
+        .signature h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(5rem, 10vw, 10rem);
+
+            font-weight: 400;
+
+            line-height: .72;
+
+            margin: 25px 0;
+        }
+
+        .signature p {
+            max-width: 550px;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.9;
+        }
+
+        .signature-note {
+            margin-top: 40px;
+
+            max-width: 520px;
+
+            padding: 25px;
+
+            border:
+                1px solid rgba(255,255,255,.16);
+
+            color: #c6c3ba;
+
+            font-size: .7rem;
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           SENSORY SECTION
+        ========================= */
+
+        .sensory {
+            padding: 150px 5%;
+
+            background: #e8e1d4;
+
+            color: #181814;
+        }
+
+        .sensory-grid {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .sensory-image {
+            height: 720px;
+
+            overflow: hidden;
+        }
+
+        .sensory-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .sensory-content h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 7vw, 7rem);
+
+            font-weight: 400;
+
+            line-height: .78;
+
+            margin: 20px 0;
+        }
+
+        .sensory-content p {
+            max-width: 520px;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        .sensory-list {
+            margin-top: 45px;
+
+            max-width: 520px;
+        }
+
+        .sensory-item {
+            padding: 18px 0;
+
+            border-bottom:
+                1px solid rgba(20,20,18,.13);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: .68rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+        .sensory-item span:last-child {
+            color: #9b8254;
+        }
+
+        /* =========================
+           CLOTHING / MAISON
+        ========================= */
+
+        .maison-preview {
+            padding: 150px 5%;
+
+            background: #181914;
+        }
+
+        .maison-preview-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-end;
+
+            gap: 40px;
+
+            margin-bottom: 70px;
+        }
+
+        .maison-preview-header h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .78;
+
+            margin: 20px 0 0;
+        }
+
+        .maison-preview-header p {
+            max-width: 380px;
+
+            color: #85867e;
+
+            line-height: 1.8;
+
+            font-size: .75rem;
+        }
+
+        .maison-products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+        .product {
+            background: #20211c;
+
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 430px;
+
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .6s ease;
+        }
+
+        .product:hover img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.8rem;
+
+            font-weight: 400;
+
+            margin: 0 0 8px;
+        }
+
+        .product-info p {
+            color: #85867e;
+
+            font-size: .65rem;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+        .product-price {
+            margin-top: 18px;
+
+            color: #d0b273;
+
+            font-size: .68rem;
+
+            letter-spacing: .08em;
+        }
+
+        /* =========================
+           MEMBERSHIP
+        ========================= */
+
+        .membership {
+            padding: 160px 5%;
+
+            background: #e8e1d4;
+
+            color: #181814;
+
+            text-align: center;
+        }
+
+        .membership h2 {
+            max-width: 1000px;
+
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+        }
+
+        .membership p {
+            max-width: 600px;
+
+            margin: auto auto 40px;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        /* =========================
+           FINAL CTA
+        ========================= */
+
+        .home-cta {
+            min-height: 800px;
+
+            padding: 130px 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    rgba(8,9,7,.55),
+                    rgba(8,9,7,.8)
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2600&q=90")
+                center/cover;
+        }
+
+        .home-cta-content {
+            max-width: 750px;
+        }
+
+        .home-cta h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(5rem, 11vw, 11rem);
+
+            font-weight: 400;
+
+            line-height: .7;
+
+            margin: 25px 0;
+        }
+
+        .home-cta p {
+            max-width: 560px;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 35px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 70px 5% 35px;
+
+            background: #0c0d0b;
+
+            color: #f1ede4;
+        }
+
+        .footer-top {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 70px;
+        }
+
+        .footer-brand h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 4rem;
+
+            font-weight: 400;
+
+            margin: 0 0 15px;
+        }
+
+        .footer-brand p {
+            max-width: 350px;
+
+            color: #66685f;
+
+            font-size: .7rem;
+
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            margin: 0 0 20px;
+
+            color: #d0b273;
+
+            font-size: .6rem;
+
+            letter-spacing: .15em;
+
+            text-transform: uppercase;
+        }
+
+        .footer-column a {
+            display: block;
+
+            margin: 10px 0;
+
+            color: #85867e;
+
+            text-decoration: none;
+
+            font-size: .68rem;
+        }
+
+        .footer-column a:hover {
+            color: #f1ede4;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(255,255,255,.08);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #55574f;
+
+            font-size: .58rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .1em;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:1000px) {
+
+            .world-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sensory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .maison-products {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .footer-top {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media(max-width:700px) {
+
+            .maison-preview-header {
+                display: block;
+            }
+
+            .maison-products {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                display: block;
+            }
+
+            .footer-bottom span {
+                display: block;
+                margin-top: 10px;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="nav scrolled">
+
+    <a href="/" class="logo">
+        VARENA
+    </a>
+
+    <nav class="navlinks">
+
+        <a href="/">Home</a>
+
+        <a href="/stay">
+            Stay
+        </a>
+
+        <a href="/experiences">
+            Experience
+        </a>
+
+        <a href="/dining">
+            Dining
+        </a>
+
+        <a href="/maison">
+            Maison
+        </a>
+
+        <a href="/membership">
+            Membership
+        </a>
+
+    </nav>
+
+    <a
+        href="/stay#booking"
+        class="nav-book"
+    >
+        Reserve
+    </a>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="home-hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            VARENA · MOUNTAIN RETREAT
+        </div>
+
+        <h1 class="hero-title">
+            Somewhere<br>
+            else.
+        </h1>
+
+        <p class="hero-subtitle">
+            A private world between mountain,
+            earth and silence.
+
+            Stay slowly.
+            Move freely.
+            Eat beautifully.
+            Leave different.
+        </p>
+
+    </div>
+
+    <div class="hero-scroll">
+        Enter VARENA
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MANIFESTO
+========================= -->
+
+<section class="manifesto">
+
+    <div class="eyebrow">
+        The VARENA idea
+    </div>
+
+    <h2>
+        You don't come here
+        to escape life.
+    </h2>
+
+    <p>
+        You come here to remember what it feels like
+        when life isn't asking anything from you.
+
+        No unnecessary noise.
+        No performance.
+        Just space, movement, people and time.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     WORLD
+========================= -->
+
+<section class="world">
+
+    <div class="world-header">
+
+        <div class="eyebrow">
+            One world · many ways to experience it
+        </div>
+
+        <h2>
+            Choose your
+            way in.
+        </h2>
+
+        <p>
+            VARENA is designed as one connected world:
+            somewhere to stay, somewhere to eat,
+            somewhere to move and somewhere to belong.
+        </p>
+
+    </div>
+
+
+    <div class="world-grid">
+
+
+        <a
+            href="/stay"
+            class="world-card"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=90"
+                alt="Luxury VARENA room"
+            >
+
+            <div class="world-card-content">
+
+                <div class="world-card-number">
+                    01 · STAY
+                </div>
+
+                <h3>
+                    Your room.
+                </h3>
+
+                <p>
+                    Private rooms and suites designed
+                    around silence, natural materials
+                    and views that make you stop.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="/experiences"
+            class="world-card"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1464822759844-d150baec0494?auto=format&fit=crop&w=1800&q=90"
+                alt="Mountain experience"
+            >
+
+            <div class="world-card-content">
+
+                <div class="world-card-number">
+                    02 · EXPERIENCE
+                </div>
+
+                <h3>
+                    Go further.
+                </h3>
+
+                <p>
+                    Mountains, adventure, training,
+                    recovery and experiences that
+                    cannot be copied at home.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="/dining"
+            class="world-card"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=90"
+                alt="Fine dining"
+            >
+
+            <div class="world-card-content">
+
+                <div class="world-card-number">
+                    03 · DINING
+                </div>
+
+                <h3>
+                    Taste the place.
+                </h3>
+
+                <p>
+                    Seasonal food, local ingredients
+                    and a signature drinks collection
+                    built around mystery and ritual.
+                </p>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SIGNATURE
+========================= -->
+
+<section class="signature">
+
+    <div class="signature-content">
+
+        <div class="eyebrow">
+            The VARENA feeling
+        </div>
+
+        <h2>
+            Leave
+            different.
+        </h2>
+
+        <p>
+            The point isn't simply that everything
+            is beautiful.
+
+            The point is what happens after several days:
+            you sleep deeper, move better, breathe slower
+            and remember what you actually enjoy.
+        </p>
+
+        <div class="signature-note">
+            Every guest gets a different VARENA.
+
+            The environment stays the same.
+            The experience is personal.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SENSORY
+========================= -->
+
+<section class="sensory">
+
+    <div class="sensory-grid">
+
+        <div class="sensory-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1800&q=90"
+                alt="VARENA wellness"
+            >
+
+        </div>
+
+
+        <div class="sensory-content">
+
+            <div class="eyebrow">
+                What remains
+            </div>
+
+            <h2>
+                You remember
+                how it felt.
+            </h2>
+
+            <p>
+                Long after the photographs disappear
+                into your camera roll, certain things remain:
+                the smell of the wood, cold mountain air,
+                a particular meal, a conversation at midnight,
+                the feeling of walking outside before sunrise.
+            </p>
+
+
+            <div class="sensory-list">
+
+                <div class="sensory-item">
+
+                    <span>
+                        The air
+                    </span>
+
+                    <span>
+                        Remembered
+                    </span>
+
+                </div>
+
+                <div class="sensory-item">
+
+                    <span>
+                        The taste
+                    </span>
+
+                    <span>
+                        Remembered
+                    </span>
+
+                </div>
+
+                <div class="sensory-item">
+
+                    <span>
+                        The people
+                    </span>
+
+                    <span>
+                        Remembered
+                    </span>
+
+                </div>
+
+                <div class="sensory-item">
+
+                    <span>
+                        The feeling
+                    </span>
+
+                    <span>
+                        Remembered
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAISON
+========================= -->
+
+<section class="maison-preview">
+
+    <div class="maison-preview-header">
+
+        <div>
+
+            <div class="eyebrow">
+                VARENA · MAISON
+            </div>
+
+            <h2>
+                Take VARENA
+                home.
+            </h2>
+
+        </div>
+
+        <p>
+            Clothing, objects, scents and pieces
+            designed to carry the atmosphere of the
+            mountain back into everyday life.
+        </p>
+
+    </div>
+
+
+    <div class="maison-products">
+
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=90"
+                    alt="VARENA jacket"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Mountain Jacket
+                </h3>
+
+                <p>
+                    Heavy cotton · weather resistant
+                </p>
+
+                <div class="product-price">
+                    1,850 MAD
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=90"
+                    alt="VARENA t-shirt"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    VARENA Core Tee
+                </h3>
+
+                <p>
+                    Heavyweight organic cotton
+                </p>
+
+                <div class="product-price">
+                    480 MAD
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=1200&q=90"
+                    alt="VARENA cap"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Mountain Cap
+                </h3>
+
+                <p>
+                    Structured cotton · embroidered mark
+                </p>
+
+                <div class="product-price">
+                    350 MAD
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=90"
+                    alt="VARENA footwear"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Trail One
+                </h3>
+
+                <p>
+                    Everyday mountain footwear
+                </p>
+
+                <div class="product-price">
+                    1,200 MAD
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMBERSHIP
+========================= -->
+
+<section class="membership">
+
+    <div class="eyebrow">
+        VARENA · MEMBERSHIP
+    </div>
+
+    <h2>
+        Don't just
+        visit.
+        Belong.
+    </h2>
+
+    <p>
+        Membership is for people who want VARENA
+        to become somewhere they return to,
+        not somewhere they remember once.
+    </p>
+
+    <a
+        href="/membership"
+        class="btn dark"
+    >
+        Discover membership
+    </a>
+
+</section>
+
+
+<!-- =========================
+     FINAL CTA
+========================= -->
+
+<section class="home-cta">
+
+    <div class="home-cta-content">
+
+        <div class="eyebrow">
+            Your invitation
+        </div>
+
+        <h2>
+            Somewhere
+            else.
+        </h2>
+
+        <p>
+            Come for the mountains.
+
+            Stay for the people.
+
+            Leave with something
+            you didn't expect to find.
+        </p>
+
+        <div class="cta-buttons">
+
+            <a
+                href="/stay#booking"
+                class="btn light"
+            >
+                Plan your stay
+            </a>
+
+            <a
+                href="/experiences"
+                class="btn light"
+            >
+                Explore experiences
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                VARENA
+            </h2>
+
+            <p>
+                A private mountain world built around
+                nature, movement, hospitality, food
+                and the feeling of being somewhere else.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="/stay">
+                Stay
+            </a>
+
+            <a href="/experiences">
+                Experiences
+            </a>
+
+            <a href="/dining">
+                Dining
+            </a>
+
+            <a href="/maison">
+                Maison
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                VARENA
+            </h4>
+
+            <a href="/membership">
+                Membership
+            </a>
+
+            <a href="/stay#booking">
+                Reservations
+            </a>
+
+            <a href="#">
+                Journal
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Information
+            </h4>
+
+            <a href="#">
+                Location
+            </a>
+
+            <a href="#">
+                Privacy
+            </a>
+
+            <a href="#">
+                Terms
+            </a>
+
+            <a href="#">
+                Instagram
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+    <span>
+        © 2026 VARENA
+    </span>
+
+    <span>
+        Conceived, designed & developed by Zakaria
+    </span>
+
+</div>
+
+</footer>
+
+
+</body>
+</html>

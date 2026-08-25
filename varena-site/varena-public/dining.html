@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dining — VARENA</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #11120f;
+            color: #f1ede4;
+        }
+
+        .dining-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: flex-end;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,9,7,.82),
+                    rgba(8,9,7,.18)
+                ),
+                url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .dining-hero-content {
+            width: min(1400px, 90%);
+            margin: auto;
+            padding-bottom: 100px;
+        }
+
+        .dining-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(5rem, 11vw, 11rem);
+            font-weight: 400;
+            line-height: .78;
+            margin: 20px 0;
+        }
+
+        .dining-hero p {
+            max-width: 520px;
+            color: rgba(255,255,255,.72);
+            line-height: 1.9;
+        }
+
+        .intro {
+            padding: 140px 5%;
+            text-align: center;
+            background: #e8e1d4;
+            color: #181814;
+        }
+
+        .intro h2 {
+            max-width: 1000px;
+            margin: 25px auto;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .88;
+        }
+
+        .intro p {
+            max-width: 650px;
+            margin: auto;
+            color: #77736a;
+            line-height: 1.9;
+        }
+
+        .restaurant {
+            padding: 130px 5%;
+            background: #f1ede4;
+            color: #181814;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .restaurant-image {
+            height: 650px;
+            overflow: hidden;
+        }
+
+        .restaurant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .restaurant-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .82;
+            margin: 20px 0;
+        }
+
+        .restaurant-content p {
+            max-width: 500px;
+            color: #77736a;
+            line-height: 1.9;
+        }
+
+        .restaurant-meta {
+            margin: 35px 0;
+            border-top: 1px solid rgba(20,20,18,.15);
+            border-bottom: 1px solid rgba(20,20,18,.15);
+        }
+
+        .restaurant-meta div {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(20,20,18,.1);
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .restaurant-meta div:last-child {
+            border-bottom: none;
+        }
+
+        .menu {
+            padding: 140px 5%;
+            background: #181914;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .menu-header h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .8;
+            margin: 20px 0;
+        }
+
+        .menu-header p {
+            max-width: 600px;
+            margin: auto;
+            color: #888980;
+            line-height: 1.8;
+        }
+
+        .menu-grid {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 80px;
+        }
+
+        .menu-item {
+            padding: 25px 0;
+            border-top: 1px solid rgba(255,255,255,.12);
+        }
+
+        .menu-item-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .menu-item h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .menu-price {
+            color: #c4a76a;
+            white-space: nowrap;
+        }
+
+        .menu-item p {
+            color: #777970;
+            font-size: .8rem;
+            line-height: 1.7;
+        }
+
+        .fuel {
+            padding: 140px 5%;
+            background: #e8e1d4;
+            color: #181814;
+        }
+
+        .fuel-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .fuel-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .82;
+            margin: 20px 0;
+        }
+
+        .fuel-content p {
+            max-width: 520px;
+            color: #77736a;
+            line-height: 1.9;
+        }
+
+        .fuel-image {
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .fuel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nutrition-list {
+            margin-top: 40px;
+        }
+
+        .nutrition-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 17px 0;
+            border-bottom: 1px solid rgba(20,20,18,.15);
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
+
+        .signature {
+            min-height: 800px;
+            padding: 130px 5%;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(12,13,10,.85),
+                    rgba(12,13,10,.2)
+                ),
+                url("https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .signature-content {
+            max-width: 750px;
+        }
+
+        .signature-number {
+            font-size: .65rem;
+            letter-spacing: .25em;
+            color: #c8aa69;
+        }
+
+        .signature h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(5rem, 10vw, 10rem);
+            font-weight: 400;
+            line-height: .75;
+            margin: 20px 0;
+        }
+
+        .signature h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .signature p {
+            max-width: 550px;
+            color: rgba(255,255,255,.7);
+            line-height: 1.9;
+        }
+
+        .drink-card {
+            margin-top: 45px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,.18);
+            max-width: 500px;
+            background: rgba(10,10,8,.35);
+        }
+
+        .drink-card-top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .drink-card h4 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .drink-price {
+            color: #d0b273;
+        }
+
+        .drink-card p {
+            font-size: .75rem;
+            margin-bottom: 0;
+        }
+
+        .cta {
+            padding: 150px 5%;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(10,11,9,.55),
+                    rgba(10,11,9,.75)
+                ),
+                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .cta h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 400;
+            line-height: .8;
+            max-width: 1000px;
+            margin: 20px auto 40px;
+        }
+
+        .cta p {
+            max-width: 550px;
+            margin: auto auto 35px;
+            color: rgba(255,255,255,.7);
+            line-height: 1.8;
+        }
+
+        @media(max-width:800px) {
+
+            .restaurant-grid,
+            .fuel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .restaurant-image {
+                height: 500px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<header class="nav scrolled">
+
+    <a href="/" class="logo">
+        VARENA
+    </a>
+
+    <nav class="navlinks">
+
+        <a href="/">Home</a>
+        <a href="/stay">Stay</a>
+        <a href="/experiences">Experience</a>
+        <a href="/dining">Dining</a>
+        <a href="/maison">Maison</a>
+        <a href="/membership">Membership</a>
+
+    </nav>
+
+    <a href="/stay#booking" class="nav-book">
+        Reserve
+    </a>
+
+</header>
+
+
+<section class="dining-hero">
+
+    <div class="dining-hero-content">
+
+        <div class="eyebrow">
+            Food · Fuel · Ritual
+        </div>
+
+        <h1>
+            Dining.
+        </h1>
+
+        <p>
+            Food designed to be remembered.
+            Beautiful enough for the table,
+            intelligent enough for the body.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="intro">
+
+    <div class="eyebrow">
+        The VARENA table
+    </div>
+
+    <h2>
+        Eat slowly.
+        Remember everything.
+    </h2>
+
+    <p>
+        VARENA treats food as part of the experience,
+        not simply something between activities.
+        Local ingredients, serious technique and a relaxed
+        atmosphere come together around the table.
+    </p>
+
+</section>
+
+
+<section class="restaurant">
+
+    <div class="restaurant-grid">
+
+        <div class="restaurant-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=90"
+                alt="VARENA restaurant"
+            >
+
+        </div>
+
+        <div class="restaurant-content">
+
+            <div class="eyebrow">
+                01 · VARENA TABLE
+            </div>
+
+            <h2>
+                Fire.<br>
+                Earth.<br>
+                Morocco.
+            </h2>
+
+            <p>
+                A refined restaurant built around Moroccan
+                ingredients and modern technique.
+
+                No unnecessary ceremony. No stiff atmosphere.
+                Just exceptional food in a place where you
+                actually want to stay for another hour.
+            </p>
+
+            <div class="restaurant-meta">
+
+                <div>
+                    <span>Breakfast</span>
+                    <span>07:00 — 11:00</span>
+                </div>
+
+                <div>
+                    <span>Lunch</span>
+                    <span>12:30 — 16:00</span>
+                </div>
+
+                <div>
+                    <span>Dinner</span>
+                    <span>19:00 — 23:00</span>
+                </div>
+
+            </div>
+
+            <a
+                href="#menu"
+                class="btn dark"
+            >
+                Explore the menu
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    class="menu"
+    id="menu"
+>
+
+    <div class="menu-header">
+
+        <div class="eyebrow">
+            Evening menu
+        </div>
+
+        <h2>
+            The Table.
+        </h2>
+
+        <p>
+            Example prototype menu and pricing.
+            Final recipes and pricing would depend
+            on the real operation.
+        </p>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+        <div class="menu-item">
+
+            <div class="menu-item-top">
+                <h3>Atlas Garden</h3>
+                <span class="menu-price">160 MAD</span>
+            </div>
+
+            <p>
+                Seasonal vegetables, herbs,
+                toasted seeds and preserved lemon.
+            </p>
+
+        </div>
+
+
+        <div class="menu-item">
+
+            <div class="menu-item-top">
+                <h3>Charcoal Lamb</h3>
+                <span class="menu-price">390 MAD</span>
+            </div>
+
+            <p>
+                Slow-cooked lamb, mountain herbs,
+                roasted vegetables and natural jus.
+            </p>
+
+        </div>
+
+
+        <div class="menu-item">
+
+            <div class="menu-item-top">
+                <h3>Atlantic Fish</h3>
+                <span class="menu-price">340 MAD</span>
+            </div>
+
+            <p>
+                Daily Moroccan catch, citrus,
+                olive oil and garden greens.
+            </p>
+
+        </div>
+
+
+        <div class="menu-item">
+
+            <div class="menu-item-top">
+                <h3>VARENA Couscous</h3>
+                <span class="menu-price">240 MAD</span>
+            </div>
+
+            <p>
+                Traditional inspiration with
+                refined modern presentation.
+            </p>
+
+        </div>
+
+
+        <div class="menu-item">
+
+            <div class="menu-item-top">
+                <h3>Burnt Fig</h3>
+                <span class="menu-price">120 MAD</span>
+            </div>
+
+            <p>
+                Roasted fig, yogurt, honey,
+                walnut and mountain salt.
+            </p>
+
+        </div>
+
+
+        <div class="menu-item">
+
+            <div class="menu-item-top">
+                <h3>Dark Chocolate</h3>
+                <span class="menu-price">140 MAD</span>
+            </div>
+
+            <p>
+                Dark chocolate, coffee, sea salt
+                and olive oil.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="fuel">
+
+    <div class="fuel-grid">
+
+        <div class="fuel-content">
+
+            <div class="eyebrow">
+                02 · VARENA FUEL
+            </div>
+
+            <h2>
+                Food that
+                works.
+            </h2>
+
+            <p>
+                Performance-focused meals for guests who
+                come to train, recover and perform.
+            </p>
+
+            <div class="nutrition-list">
+
+                <div class="nutrition-row">
+                    <span>Protein breakfast</span>
+                    <span>95 MAD</span>
+                </div>
+
+                <div class="nutrition-row">
+                    <span>Performance bowl</span>
+                    <span>140 MAD</span>
+                </div>
+
+                <div class="nutrition-row">
+                    <span>Recovery smoothie</span>
+                    <span>85 MAD</span>
+                </div>
+
+                <div class="nutrition-row">
+                    <span>High-protein dessert</span>
+                    <span>75 MAD</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="fuel-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1800&q=90"
+                alt="Performance nutrition"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="signature">
+
+    <div class="signature-content">
+
+        <div class="signature-number">
+            VARENA · 01
+        </div>
+
+        <h2>
+            No.01
+        </h2>
+
+        <h3>
+            You know the taste.
+            You don't know the full formula.
+        </h3>
+
+        <p>
+            The drink people associate with VARENA.
+
+            Refreshing, distinctive and recognizable.
+
+            The exact formulation remains proprietary,
+            while the taste becomes part of the identity.
+        </p>
+
+
+        <div class="drink-card">
+
+            <div class="drink-card-top">
+
+                <h4>
+                    VARENA No.01
+                </h4>
+
+                <span class="drink-price">
+                    65 MAD
+                </span>
+
+            </div>
+
+            <p>
+                Served cold · Signature aroma ·
+                Proprietary formulation
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="eyebrow">
+        Stay for dinner
+    </div>
+
+    <h2>
+        Come hungry.<br>
+        Leave different.
+    </h2>
+
+    <p>
+        The table is waiting.
+    </p>
+
+    <a
+        href="/stay#booking"
+        class="btn light"
+    >
+        Begin your stay
+    </a>
+
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/"
+  to = "/public/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/stay"
+  to = "/pages/stay.html"
+  status = 200
+
+[[redirects]]
+  from = "/experiences"
+  to = "/pages/experiences.html"
+  status = 200
+
+[[redirects]]
+  from = "/dining"
+  to = "/pages/dining.html"
+  status = 200
+
+[[redirects]]
+  from = "/maison"
+  to = "/pages/maison.html"
+  status = 200
+
+[[redirects]]
+  from = "/membership"
+  to = "/pages/membership.html"
+  status = 200
+
+[[redirects]]
+  from = "/journal"
+  to = "/pages/journal.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/varena/:splat"
+  status = 200
