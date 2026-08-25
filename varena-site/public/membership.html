@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Membership — VARENA</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #11120f;
+            color: #f1ede4;
+        }
+
+        /* HERO */
+
+        .membership-hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: flex-end;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,8,6,.86),
+                    rgba(7,8,6,.18)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .membership-hero-content {
+            width: min(1400px, 90%);
+            margin: auto;
+            padding-bottom: 100px;
+        }
+
+        .membership-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(5rem, 12vw, 12rem);
+            font-weight: 400;
+            line-height: .75;
+            letter-spacing: -.06em;
+            margin: 20px 0;
+        }
+
+        .membership-hero p {
+            max-width: 560px;
+            color: rgba(255,255,255,.72);
+            line-height: 1.9;
+        }
+
+        /* INTRO */
+
+        .membership-intro {
+            padding: 150px 5%;
+            text-align: center;
+
+            background: #e8e1d4;
+            color: #181814;
+        }
+
+        .membership-intro h2 {
+            max-width: 1000px;
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .84;
+        }
+
+        .membership-intro p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #77736a;
+            line-height: 1.9;
+        }
+
+        /* MEMBERSHIP CARDS */
+
+        .plans {
+            padding: 140px 5%;
+            background: #f1ede4;
+            color: #181814;
+        }
+
+        .plans-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .plans-header h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 7vw, 7rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+
+            margin: 20px 0;
+        }
+
+        .plans-header p {
+            max-width: 600px;
+            margin: auto;
+
+            color: #77736a;
+
+            line-height: 1.8;
+        }
+
+        .plans-grid {
+            max-width: 1250px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .plan {
+            position: relative;
+
+            padding: 45px 35px 50px;
+
+            border: 1px solid rgba(20,20,18,.15);
+
+            background: rgba(255,255,255,.15);
+        }
+
+        .plan.featured {
+            background: #181914;
+            color: #f1ede4;
+
+            transform: translateY(-18px);
+        }
+
+        .plan-number {
+            font-size: .6rem;
+            letter-spacing: .2em;
+            color: #9b8254;
+        }
+
+        .plan h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 3rem;
+
+            font-weight: 400;
+
+            margin: 20px 0 10px;
+        }
+
+        .plan-description {
+            min-height: 75px;
+
+            color: #77736a;
+
+            font-size: .8rem;
+
+            line-height: 1.8;
+        }
+
+        .featured .plan-description {
+            color: #85867e;
+        }
+
+        .plan-price {
+            margin: 35px 0;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 3rem;
+        }
+
+        .plan-price span {
+            font-family: Arial, sans-serif;
+
+            font-size: .65rem;
+
+            color: #77736a;
+        }
+
+        .featured .plan-price span {
+            color: #85867e;
+        }
+
+        .plan-list {
+            margin: 35px 0;
+            padding: 0;
+
+            list-style: none;
+
+            border-top:
+                1px solid rgba(20,20,18,.13);
+        }
+
+        .featured .plan-list {
+            border-color:
+                rgba(255,255,255,.12);
+        }
+
+        .plan-list li {
+            padding: 14px 0;
+
+            border-bottom:
+                1px solid rgba(20,20,18,.1);
+
+            font-size: .68rem;
+
+            line-height: 1.6;
+        }
+
+        .featured .plan-list li {
+            border-color:
+                rgba(255,255,255,.1);
+        }
+
+        .plan-list li::before {
+            content: "— ";
+            color: #a58b5b;
+        }
+
+        /* PRIVILEGES */
+
+        .privileges {
+            padding: 150px 5%;
+            background: #181914;
+        }
+
+        .privileges-header {
+            max-width: 850px;
+            margin-bottom: 80px;
+        }
+
+        .privileges-header h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 7vw, 7rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+
+            margin: 20px 0;
+        }
+
+        .privileges-header p {
+            max-width: 600px;
+
+            color: #85867e;
+
+            line-height: 1.8;
+        }
+
+        .privilege-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 1px;
+
+            background: rgba(255,255,255,.1);
+        }
+
+        .privilege {
+            min-height: 260px;
+
+            padding: 40px;
+
+            background: #181914;
+        }
+
+        .privilege-number {
+            color: #c5a76a;
+
+            font-size: .6rem;
+
+            letter-spacing: .2em;
+        }
+
+        .privilege h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 2.4rem;
+
+            font-weight: 400;
+
+            margin: 20px 0 12px;
+        }
+
+        .privilege p {
+            max-width: 500px;
+
+            color: #777970;
+
+            line-height: 1.8;
+
+            font-size: .78rem;
+        }
+
+        /* ACCESS */
+
+        .access {
+            min-height: 800px;
+
+            padding: 130px 5%;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,9,7,.85),
+                    rgba(8,9,7,.15)
+                ),
+                url("https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .access-content {
+            max-width: 700px;
+        }
+
+        .access h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(5rem, 10vw, 10rem);
+
+            font-weight: 400;
+
+            line-height: .74;
+
+            margin: 25px 0;
+        }
+
+        .access p {
+            max-width: 560px;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.9;
+        }
+
+        .access-note {
+            margin-top: 40px;
+
+            padding: 25px;
+
+            max-width: 550px;
+
+            border:
+                1px solid rgba(255,255,255,.15);
+
+            color: #c7c4bb;
+
+            font-size: .7rem;
+
+            line-height: 1.7;
+        }
+
+        /* APPLICATION */
+
+        .application {
+            padding: 150px 5%;
+
+            text-align: center;
+
+            background: #e8e1d4;
+
+            color: #181814;
+        }
+
+        .application h2 {
+            max-width: 1000px;
+
+            margin: 25px auto 35px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+        }
+
+        .application p {
+            max-width: 600px;
+
+            margin: auto auto 35px;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        /* NOTE */
+
+        .prototype-note {
+            padding: 35px 5%;
+
+            background: #11120f;
+
+            text-align: center;
+
+            color: #66685f;
+
+            font-size: .6rem;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:950px) {
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan.featured {
+                transform: none;
+            }
+
+        }
+
+        @media(max-width:700px) {
+
+            .privilege-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<header class="nav scrolled">
+
+    <a href="/" class="logo">
+        VARENA
+    </a>
+
+    <nav class="navlinks">
+
+        <a href="/">Home</a>
+
+        <a href="/stay">
+            Stay
+        </a>
+
+        <a href="/experiences">
+            Experience
+        </a>
+
+        <a href="/dining">
+            Dining
+        </a>
+
+        <a href="/maison">
+            Maison
+        </a>
+
+        <a href="/membership">
+            Membership
+        </a>
+
+    </nav>
+
+    <a
+        href="#apply"
+        class="nav-book"
+    >
+        Apply
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="membership-hero">
+
+    <div class="membership-hero-content">
+
+        <div class="eyebrow">
+            VARENA · MEMBERSHIP
+        </div>
+
+        <h1>
+            Belong.
+        </h1>
+
+        <p>
+            Membership is not a requirement to visit VARENA.
+
+            It is for people who want the relationship
+            to continue after they leave.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="membership-intro">
+
+    <div class="eyebrow">
+        Beyond the stay
+    </div>
+
+    <h2>
+        The place becomes
+        part of your life.
+    </h2>
+
+    <p>
+        Return throughout the year.
+        Bring people you care about.
+        Access experiences before everyone else.
+        Make VARENA somewhere you know,
+        rather than somewhere you once visited.
+    </p>
+
+</section>
+
+
+<!-- PLANS -->
+
+<section class="plans">
+
+    <div class="plans-header">
+
+        <div class="eyebrow">
+            Membership levels
+        </div>
+
+        <h2>
+            Choose your relationship.
+        </h2>
+
+        <p>
+            Three prototype membership structures.
+            Final pricing would be determined by the
+            real VARENA business model, operating costs
+            and capacity.
+        </p>
+
+    </div>
+
+
+    <div class="plans-grid">
+
+
+        <!-- EXPLORER -->
+
+        <article class="plan">
+
+            <div class="plan-number">
+                01 · EXPLORER
+            </div>
+
+            <h3>
+                Explorer
+            </h3>
+
+            <p class="plan-description">
+                For people who want regular access
+                without committing to a full private club model.
+            </p>
+
+            <div class="plan-price">
+                9,500
+                <span>
+                    MAD / YEAR
+                </span>
+            </div>
+
+            <ul class="plan-list">
+
+                <li>
+                    Priority booking windows
+                </li>
+
+                <li>
+                    5% dining benefit
+                </li>
+
+                <li>
+                    Early access to experiences
+                </li>
+
+                <li>
+                    Maison member pricing
+                </li>
+
+                <li>
+                    Two guest passes per year
+                </li>
+
+            </ul>
+
+            <a
+                href="#apply"
+                class="btn dark"
+            >
+                Apply
+            </a>
+
+        </article>
+
+
+        <!-- RESIDENT -->
+
+        <article class="plan featured">
+
+            <div class="plan-number">
+                02 · RESIDENT
+            </div>
+
+            <h3>
+                Resident
+            </h3>
+
+            <p class="plan-description">
+                The core VARENA membership.
+                Designed for people who return throughout the year.
+            </p>
+
+            <div class="plan-price">
+                24,000
+                <span>
+                    MAD / YEAR
+                </span>
+            </div>
+
+            <ul class="plan-list">
+
+                <li>
+                    Priority room reservations
+                </li>
+
+                <li>
+                    10% dining benefit
+                </li>
+
+                <li>
+                    Complimentary wellness session
+                </li>
+
+                <li>
+                    Four guest passes per year
+                </li>
+
+                <li>
+                    Private member events
+                </li>
+
+                <li>
+                    Maison priority access
+                </li>
+
+            </ul>
+
+            <a
+                href="#apply"
+                class="btn light"
+            >
+                Apply
+            </a>
+
+        </article>
+
+
+        <!-- FOUNDERS -->
+
+        <article class="plan">
+
+            <div class="plan-number">
+                03 · FOUNDERS
+            </div>
+
+            <h3>
+                Founders
+            </h3>
+
+            <p class="plan-description">
+                A limited membership for the people
+                who want to help shape the VARENA community.
+            </p>
+
+            <div class="plan-price">
+                60,000
+                <span>
+                    MAD / YEAR
+                </span>
+            </div>
+
+            <ul class="plan-list">
+
+                <li>
+                    Highest booking priority
+                </li>
+
+                <li>
+                    15% dining benefit
+                </li>
+
+                <li>
+                    Dedicated guest services
+                </li>
+
+                <li>
+                    Eight guest passes per year
+                </li>
+
+                <li>
+                    Founder events
+                </li>
+
+                <li>
+                    Early Maison releases
+                </li>
+
+            </ul>
+
+            <a
+                href="#apply"
+                class="btn dark"
+            >
+                Apply
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- PRIVILEGES -->
+
+<section class="privileges">
+
+    <div class="privileges-header">
+
+        <div class="eyebrow">
+            Member privileges
+        </div>
+
+        <h2>
+            More than
+            discounts.
+        </h2>
+
+        <p>
+            The strongest reason to become a member
+            should never be a percentage off a bill.
+
+            It should be access, recognition and
+            experiences that are difficult to reproduce elsewhere.
+        </p>
+
+    </div>
+
+
+    <div class="privilege-grid">
+
+
+        <article class="privilege">
+
+            <div class="privilege-number">
+                01
+            </div>
+
+            <h3>
+                Priority Access
+            </h3>
+
+            <p>
+                Members receive earlier access to
+                rooms, experiences, events and
+                limited-capacity activities.
+            </p>
+
+        </article>
+
+
+        <article class="privilege">
+
+            <div class="privilege-number">
+                02
+            </div>
+
+            <h3>
+                Remembered
+            </h3>
+
+            <p>
+                Preferences, routines and details
+                can be recorded so returning guests
+                don't have to explain themselves again.
+            </p>
+
+        </article>
+
+
+        <article class="privilege">
+
+            <div class="privilege-number">
+                03
+            </div>
+
+            <h3>
+                Private Experiences
+            </h3>
+
+            <p>
+                Certain experiences would only be
+                available to members and invited guests.
+            </p>
+
+        </article>
+
+
+        <article class="privilege">
+
+            <div class="privilege-number">
+                04
+            </div>
+
+            <h3>
+                Your People
+            </h3>
+
+            <p>
+                Membership includes controlled guest access,
+                allowing the experience to be shared without
+                turning VARENA into an open-access club.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- ACCESS -->
+
+<section class="access">
+
+    <div class="access-content">
+
+        <div class="eyebrow">
+            The difference
+        </div>
+
+        <h2>
+            You are
+            remembered.
+        </h2>
+
+        <p>
+            The most valuable part of membership is not
+            a wristband, card or logo.
+
+            It is arriving and realizing that the people
+            around you already know how you like your coffee,
+            which room you prefer and whether you want
+            conversation or silence.
+        </p>
+
+        <div class="access-note">
+            This is the service philosophy behind the
+            membership concept — human recognition first,
+            technology second.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<section
+    class="application"
+    id="apply"
+>
+
+    <div class="eyebrow">
+        Membership application
+    </div>
+
+    <h2>
+        Start a conversation.
+    </h2>
+
+    <p>
+        VARENA membership is intentionally presented
+        as an application rather than an instant checkout.
+
+        For the real business, this would allow the team
+        to understand capacity, fit and expectations before
+        accepting a member.
+    </p>
+
+    <a
+        href="mailto:membership@varena.example"
+        class="btn dark"
+    >
+        Request an invitation
+    </a>
+
+</section>
+
+
+<!-- PROTOTYPE NOTICE -->
+
+<div class="prototype-note">
+    VARENA MEMBERSHIP · CONCEPT / PROTOTYPE PRICING · NOT CURRENTLY FOR SALE
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Experiences — VARENA</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #11120f;
+            color: #f1ede4;
+        }
+
+        .experience-hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: flex-end;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,8,6,.86),
+                    rgba(7,8,6,.12)
+                ),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .experience-hero-content {
+            width: min(1400px, 90%);
+            margin: auto;
+            padding-bottom: 105px;
+        }
+
+        .experience-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(5rem, 12vw, 12rem);
+            font-weight: 400;
+            line-height: .73;
+            letter-spacing: -.06em;
+            margin: 20px 0;
+        }
+
+        .experience-hero p {
+            max-width: 570px;
+            color: rgba(255,255,255,.72);
+            line-height: 1.9;
+        }
+
+        .intro {
+            padding: 150px 5%;
+            text-align: center;
+            background: #e8e1d4;
+            color: #181814;
+        }
+
+        .intro h2 {
+            max-width: 1050px;
+            margin: 25px auto;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .83;
+        }
+
+        .intro p {
+            max-width: 680px;
+            margin: auto;
+            color: #77736a;
+            line-height: 1.9;
+        }
+
+        .experiences {
+            padding: 140px 5%;
+            background: #f1ede4;
+            color: #181814;
+        }
+
+        .section-heading {
+            max-width: 800px;
+            margin-bottom: 75px;
+        }
+
+        .section-heading h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .8;
+            margin: 20px 0;
+        }
+
+        .section-heading p {
+            max-width: 600px;
+            color: #77736a;
+            line-height: 1.8;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .experience-card {
+            position: relative;
+            min-height: 680px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .experience-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .8s ease;
+        }
+
+        .experience-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .experience-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent 25%,
+                rgba(0,0,0,.8)
+            );
+        }
+
+        .experience-content {
+            position: absolute;
+            z-index: 2;
+            left: 38px;
+            right: 38px;
+            bottom: 38px;
+        }
+
+        .experience-number {
+            color: #d0b273;
+            font-size: .62rem;
+            letter-spacing: .2em;
+        }
+
+        .experience-content h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 3.6rem;
+            font-weight: 400;
+            line-height: .85;
+            margin: 15px 0;
+        }
+
+        .experience-content p {
+            max-width: 500px;
+            color: rgba(255,255,255,.72);
+            line-height: 1.8;
+            font-size: .78rem;
+        }
+
+        .experience-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 30px;
+            margin: 25px 0;
+            border-top: 1px solid rgba(255,255,255,.2);
+            padding-top: 17px;
+            font-size: .62rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .experience-price {
+            color: #d0b273;
+        }
+
+        .adventure {
+            padding: 150px 5%;
+            background: #181914;
+        }
+
+        .adventure-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .adventure-image {
+            height: 700px;
+            overflow: hidden;
+        }
+
+        .adventure-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .adventure-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .78;
+            margin: 20px 0;
+        }
+
+        .adventure-content > p {
+            max-width: 550px;
+            color: #85867e;
+            line-height: 1.9;
+        }
+
+        .difficulty {
+            margin-top: 45px;
+            max-width: 550px;
+        }
+
+        .difficulty-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 17px 0;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .difficulty-row span:last-child {
+            color: #c7a96b;
+        }
+
+        .wellness {
+            padding: 150px 5%;
+            background: #e8e1d4;
+            color: #181814;
+        }
+
+        .wellness-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .wellness-header h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .8;
+            margin: 20px 0;
+        }
+
+        .wellness-header p {
+            max-width: 600px;
+            margin: auto;
+            color: #77736a;
+            line-height: 1.8;
+        }
+
+        .wellness-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .wellness-card {
+            padding: 40px 30px;
+            border: 1px solid rgba(20,20,18,.14);
+            min-height: 260px;
+        }
+
+        .wellness-card span {
+            color: #9b8254;
+            font-size: .6rem;
+            letter-spacing: .2em;
+        }
+
+        .wellness-card h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            margin: 18px 0;
+        }
+
+        .wellness-card p {
+            color: #77736a;
+            font-size: .76rem;
+            line-height: 1.8;
+        }
+
+        .wellness-price {
+            margin-top: 25px;
+            color: #181814 !important;
+            font-size: .65rem !important;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .private {
+            min-height: 850px;
+            padding: 130px 5%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,9,7,.87),
+                    rgba(8,9,7,.15)
+                ),
+                url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .private-content {
+            max-width: 720px;
+        }
+
+        .private-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(5rem, 10vw, 10rem);
+            font-weight: 400;
+            line-height: .74;
+            margin: 25px 0;
+        }
+
+        .private-content p {
+            max-width: 560px;
+            color: rgba(255,255,255,.7);
+            line-height: 1.9;
+        }
+
+        .private-box {
+            max-width: 540px;
+            margin-top: 40px;
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,.16);
+        }
+
+        .private-box strong {
+            display: block;
+            margin-bottom: 10px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+        }
+
+        .private-box span {
+            color: #c7a96b;
+            font-size: .65rem;
+        }
+
+        .experience-cta {
+            padding: 150px 5%;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(9,10,8,.55),
+                    rgba(9,10,8,.8)
+                ),
+                url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .experience-cta h2 {
+            max-width: 1000px;
+            margin: 20px auto 40px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 400;
+            line-height: .8;
+        }
+
+        .experience-cta p {
+            max-width: 550px;
+            margin: auto auto 35px;
+            color: rgba(255,255,255,.7);
+            line-height: 1.8;
+        }
+
+        @media(max-width:900px) {
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .adventure-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wellness-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                min-height: 600px;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .experience-content {
+                left: 25px;
+                right: 25px;
+                bottom: 25px;
+            }
+
+            .experience-content h3 {
+                font-size: 2.8rem;
+            }
+
+            .adventure-image {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="nav scrolled">
+
+    <a href="/" class="logo">
+        VARENA
+    </a>
+
+    <nav class="navlinks">
+        <a href="/">Home</a>
+        <a href="/stay">Stay</a>
+        <a href="/experiences">Experience</a>
+        <a href="/dining">Dining</a>
+        <a href="/maison">Maison</a>
+        <a href="/membership">Membership</a>
+    </nav>
+
+    <a href="/stay#booking" class="nav-book">
+        Reserve
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="experience-hero">
+
+    <div class="experience-hero-content">
+
+        <div class="eyebrow">
+            VARENA · EXPERIENCES
+        </div>
+
+        <h1>
+            Go further.
+        </h1>
+
+        <p>
+            Mountains, movement, silence, water and open air.
+            Experiences designed to leave you with a memory
+            rather than another item on a schedule.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <div class="eyebrow">
+        The philosophy
+    </div>
+
+    <h2>
+        You came here
+        to feel something.
+    </h2>
+
+    <p>
+        Some experiences are physically demanding.
+        Some are almost completely still.
+        The common thread is simple:
+        you leave feeling different from when you arrived.
+    </p>
+
+</section>
+
+
+<!-- EXPERIENCE COLLECTION -->
+
+<section class="experiences">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            01 · SIGNATURE EXPERIENCES
+        </div>
+
+        <h2>
+            Choose your
+            distance.
+        </h2>
+
+        <p>
+            From a quiet sunrise above the valley
+            to a full-day mountain expedition.
+            Every experience can be adjusted to the guest.
+        </p>
+
+    </div>
+
+
+    <div class="experience-grid">
+
+
+        <!-- MOUNTAIN -->
+
+        <article class="experience-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1800&q=90"
+                alt="Mountain expedition"
+            >
+
+            <div class="experience-content">
+
+                <div class="experience-number">
+                    01 · THE ASCENT
+                </div>
+
+                <h3>
+                    Mountain
+                    Ascent
+                </h3>
+
+                <p>
+                    A guided route through mountain terrain,
+                    built around pace, views and the feeling
+                    of earning the landscape.
+                </p>
+
+                <div class="experience-meta">
+
+                    <span>
+                        6 — 8 HOURS
+                    </span>
+
+                    <span>
+                        MODERATE / HARD
+                    </span>
+
+                    <span class="experience-price">
+                        FROM 1,200 MAD
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SUNRISE -->
+
+        <article class="experience-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=90"
+                alt="Mountain sunrise"
+            >
+
+            <div class="experience-content">
+
+                <div class="experience-number">
+                    02 · FIRST LIGHT
+                </div>
+
+                <h3>
+                    First
+                    Light
+                </h3>
+
+                <p>
+                    Leave before sunrise, climb quietly
+                    and watch the landscape change
+                    before the rest of the world wakes.
+                </p>
+
+                <div class="experience-meta">
+
+                    <span>
+                        3 HOURS
+                    </span>
+
+                    <span>
+                        EASY / MODERATE
+                    </span>
+
+                    <span class="experience-price">
+                        FROM 650 MAD
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- HORSE -->
+
+        <article class="experience-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1800&q=90"
+                alt="Horse riding"
+            >
+
+            <div class="experience-content">
+
+                <div class="experience-number">
+                    03 · OPEN COUNTRY
+                </div>
+
+                <h3>
+                    Horseback
+                    Journey
+                </h3>
+
+                <p>
+                    Ride beyond the property through
+                    open terrain, local paths and quiet
+                    mountain landscapes.
+                </p>
+
+                <div class="experience-meta">
+
+                    <span>
+                        4 HOURS
+                    </span>
+
+                    <span>
+                        MODERATE
+                    </span>
+
+                    <span class="experience-price">
+                        FROM 900 MAD
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- WATER -->
+
+        <article class="experience-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?auto=format&fit=crop&w=1800&q=90"
+                alt="River experience"
+            >
+
+            <div class="experience-content">
+
+                <div class="experience-number">
+                    04 · COLD WATER
+                </div>
+
+                <h3>
+                    Wild
+                    Water
+                </h3>
+
+                <p>
+                    A controlled cold-water experience
+                    followed by fire, food and recovery.
+                </p>
+
+                <div class="experience-meta">
+
+                    <span>
+                        3 HOURS
+                    </span>
+
+                    <span>
+                        MODERATE
+                    </span>
+
+                    <span class="experience-price">
+                        FROM 700 MAD
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ADVENTURE -->
+
+<section class="adventure">
+
+    <div class="adventure-grid">
+
+        <div class="adventure-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1464822759844-d150baec0494?auto=format&fit=crop&w=1800&q=90"
+                alt="VARENA mountain adventure"
+            >
+
+        </div>
+
+
+        <div class="adventure-content">
+
+            <div class="eyebrow">
+                02 · ADVENTURE
+            </div>
+
+            <h2>
+                Earn the
+                view.
+            </h2>
+
+            <p>
+                VARENA's adventure program is designed
+                around progression rather than adrenaline
+                for its own sake.
+
+                Guests can choose the level that suits them,
+                while guides adapt the route to conditions,
+                ability and weather.
+            </p>
+
+
+            <div class="difficulty">
+
+                <div class="difficulty-row">
+
+                    <span>
+                        Level I
+                    </span>
+
+                    <span>
+                        Explorer
+                    </span>
+
+                </div>
+
+                <div class="difficulty-row">
+
+                    <span>
+                        Level II
+                    </span>
+
+                    <span>
+                        Mountain
+                    </span>
+
+                </div>
+
+                <div class="difficulty-row">
+
+                    <span>
+                        Level III
+                    </span>
+
+                    <span>
+                        Expedition
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WELLNESS -->
+
+<section class="wellness">
+
+    <div class="wellness-header">
+
+        <div class="eyebrow">
+            03 · RECOVERY
+        </div>
+
+        <h2>
+            Slow down.
+        </h2>
+
+        <p>
+            Recovery is part of the experience.
+            These sessions are designed to leave
+            you calmer, clearer and ready for tomorrow.
+        </p>
+
+    </div>
+
+
+    <div class="wellness-grid">
+
+
+        <article class="wellness-card">
+
+            <span>
+                01
+            </span>
+
+            <h3>
+                Mountain Sauna
+            </h3>
+
+            <p>
+                Heat, silence and mountain air.
+                A simple recovery ritual after a long day.
+            </p>
+
+            <p class="wellness-price">
+                350 MAD · 60 MIN
+            </p>
+
+        </article>
+
+
+        <article class="wellness-card">
+
+            <span>
+                02
+            </span>
+
+            <h3>
+                Deep Recovery
+            </h3>
+
+            <p>
+                Guided mobility, breathwork and
+                assisted stretching.
+            </p>
+
+            <p class="wellness-price">
+                550 MAD · 75 MIN
+            </p>
+
+        </article>
+
+
+        <article class="wellness-card">
+
+            <span>
+                03
+            </span>
+
+            <h3>
+                Stillness
+            </h3>
+
+            <p>
+                A private guided session designed
+                around slowing the nervous system down.
+            </p>
+
+            <p class="wellness-price">
+                450 MAD · 60 MIN
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- PRIVATE -->
+
+<section class="private">
+
+    <div class="private-content">
+
+        <div class="eyebrow">
+            04 · PRIVATE
+        </div>
+
+        <h2>
+            Your day.
+            Your rules.
+        </h2>
+
+        <p>
+            Want something that doesn't exist on the menu?
+            The VARENA team can build a private day around
+            your interests: a mountain route, private dining,
+            photography, training, local exploration or simply
+            disappearing into the landscape.
+        </p>
+
+
+        <div class="private-box">
+
+            <strong>
+                Bespoke VARENA Day
+            </strong>
+
+            <span>
+                FROM 3,500 MAD / GROUP
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="experience-cta">
+
+    <div class="eyebrow">
+        Your next day
+    </div>
+
+    <h2>
+        Don't just
+        stay here.
+    </h2>
+
+    <p>
+        Go somewhere you haven't been.
+        Do something you haven't done.
+        Come back different.
+    </p>
+
+    <a
+        href="/stay#booking"
+        class="btn light"
+    >
+        Plan your stay
+    </a>
+
+</section>
+
+
+</body>
+</html>

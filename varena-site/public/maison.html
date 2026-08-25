@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maison — VARENA</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #11120f;
+            color: #f1ede4;
+        }
+
+        /* HERO */
+
+        .maison-hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: flex-end;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,9,7,.78),
+                    rgba(8,9,7,.15)
+                ),
+                url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .maison-hero-content {
+            width: min(1400px, 90%);
+            margin: auto;
+            padding-bottom: 100px;
+        }
+
+        .maison-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(5rem, 12vw, 12rem);
+            font-weight: 400;
+            line-height: .76;
+            letter-spacing: -.06em;
+            margin: 20px 0;
+        }
+
+        .maison-hero p {
+            max-width: 550px;
+            color: rgba(255,255,255,.72);
+            line-height: 1.9;
+        }
+
+        /* INTRO */
+
+        .maison-intro {
+            padding: 150px 5%;
+            text-align: center;
+
+            background: #e8e1d4;
+            color: #181814;
+        }
+
+        .maison-intro h2 {
+            max-width: 1000px;
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .86;
+        }
+
+        .maison-intro p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #77736a;
+            line-height: 1.9;
+        }
+
+        /* COLLECTION */
+
+        .collection {
+            padding: 130px 5%;
+            background: #f1ede4;
+            color: #181814;
+        }
+
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            margin-bottom: 70px;
+        }
+
+        .collection-header h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4rem, 7vw, 7rem);
+            font-weight: 400;
+            line-height: .8;
+            margin: 20px 0 0;
+        }
+
+        .collection-header p {
+            max-width: 350px;
+            color: #77736a;
+            line-height: 1.8;
+        }
+
+        /* PRODUCTS */
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+        .product-card {
+            position: relative;
+        }
+
+        .product-image {
+            height: 600px;
+            overflow: hidden;
+            background: #ddd5c8;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s ease;
+        }
+
+        .product-card:hover
+        .product-image img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 22px 0 45px;
+        }
+
+        .product-info-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .product-info h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .product-price {
+            color: #806d4a;
+            white-space: nowrap;
+        }
+
+        .product-info p {
+            max-width: 420px;
+
+            color: #77736a;
+
+            font-size: .78rem;
+            line-height: 1.8;
+        }
+
+        .product-tag {
+            position: absolute;
+
+            top: 18px;
+            left: 18px;
+
+            padding: 9px 12px;
+
+            background: rgba(245,241,232,.9);
+
+            color: #181814;
+
+            font-size: .58rem;
+
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        /* FEATURE */
+
+        .feature {
+            min-height: 850px;
+
+            padding: 130px 5%;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(10,10,8,.85),
+                    rgba(10,10,8,.15)
+                ),
+                url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .feature-content {
+            max-width: 700px;
+        }
+
+        .feature-number {
+            color: #c6a96b;
+
+            font-size: .65rem;
+
+            letter-spacing: .25em;
+        }
+
+        .feature h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(5rem, 10vw, 10rem);
+
+            font-weight: 400;
+
+            line-height: .75;
+
+            margin: 25px 0;
+        }
+
+        .feature h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 2rem;
+
+            font-weight: 400;
+        }
+
+        .feature p {
+            max-width: 550px;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.9;
+        }
+
+        .feature-details {
+            margin-top: 40px;
+
+            max-width: 500px;
+
+            border-top:
+                1px solid rgba(255,255,255,.18);
+        }
+
+        .feature-detail {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 16px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.12);
+
+            font-size: .68rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+        }
+
+        /* ESSENTIALS */
+
+        .essentials {
+            padding: 140px 5%;
+
+            background: #181914;
+        }
+
+        .essentials-header {
+            text-align: center;
+
+            margin-bottom: 80px;
+        }
+
+        .essentials-header h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 7vw, 7rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+
+            margin: 20px 0;
+        }
+
+        .essentials-header p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: #85867e;
+
+            line-height: 1.8;
+        }
+
+        .essential-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .essential-card {
+            padding: 35px 25px;
+
+            border:
+                1px solid rgba(255,255,255,.11);
+
+            text-align: center;
+        }
+
+        .essential-card span {
+            display: block;
+
+            color: #c6a96b;
+
+            font-size: .62rem;
+
+            letter-spacing: .15em;
+        }
+
+        .essential-card h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.8rem;
+
+            font-weight: 400;
+
+            margin: 15px 0;
+        }
+
+        .essential-card p {
+            color: #777970;
+
+            font-size: .72rem;
+
+            line-height: 1.7;
+        }
+
+        .essential-price {
+            color: #ddd8cc !important;
+        }
+
+        /* PHILOSOPHY */
+
+        .philosophy {
+            padding: 150px 5%;
+
+            background: #e8e1d4;
+
+            color: #181814;
+
+            text-align: center;
+        }
+
+        .philosophy h2 {
+            max-width: 1000px;
+
+            margin: 25px auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .82;
+        }
+
+        .philosophy p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #77736a;
+
+            line-height: 1.9;
+        }
+
+        /* CTA */
+
+        .maison-cta {
+            padding: 150px 5%;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(10,11,9,.58),
+                    rgba(10,11,9,.78)
+                ),
+                url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2400&q=90")
+                center/cover;
+        }
+
+        .maison-cta h2 {
+            max-width: 1000px;
+
+            margin: 20px auto 40px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(4rem, 8vw, 8rem);
+
+            font-weight: 400;
+
+            line-height: .8;
+        }
+
+        .maison-cta p {
+            max-width: 550px;
+
+            margin: auto auto 35px;
+
+            color: rgba(255,255,255,.7);
+
+            line-height: 1.8;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:900px) {
+
+            .collection-header {
+                display: block;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .essential-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .essential-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 500px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<header class="nav scrolled">
+
+    <a href="/" class="logo">
+        VARENA
+    </a>
+
+    <nav class="navlinks">
+
+        <a href="/">Home</a>
+
+        <a href="/stay">
+            Stay
+        </a>
+
+        <a href="/experiences">
+            Experience
+        </a>
+
+        <a href="/dining">
+            Dining
+        </a>
+
+        <a href="/maison">
+            Maison
+        </a>
+
+        <a href="/membership">
+            Membership
+        </a>
+
+    </nav>
+
+    <a
+        href="/stay#booking"
+        class="nav-book"
+    >
+        Reserve
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="maison-hero">
+
+    <div class="maison-hero-content">
+
+        <div class="eyebrow">
+            VARENA · MAISON
+        </div>
+
+        <h1>
+            Maison.
+        </h1>
+
+        <p>
+            Things made for the life outside the walls.
+
+            Quiet clothing, useful objects and pieces
+            designed to become part of the VARENA world.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="maison-intro">
+
+    <div class="eyebrow">
+        The collection
+    </div>
+
+    <h2>
+        Wear the feeling.
+    </h2>
+
+    <p>
+        VARENA Maison is not designed to look loud.
+
+        The idea is simple:
+        exceptional materials, restrained design,
+        natural colours and pieces that still look
+        right years later.
+    </p>
+
+</section>
+
+
+<!-- COLLECTION -->
+
+<section class="collection">
+
+    <div class="collection-header">
+
+        <div>
+
+            <div class="eyebrow">
+                01 · CORE COLLECTION
+            </div>
+
+            <h2>
+                The essentials.
+            </h2>
+
+        </div>
+
+        <p>
+            Prototype products and pricing for the
+            VARENA Maison concept.
+        </p>
+
+    </div>
+
+
+    <div class="product-grid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product-card">
+
+            <div class="product-tag">
+                Signature
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1400&q=90"
+                    alt="VARENA leather jacket"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-info-top">
+
+                    <h3>
+                        VARENA Field Jacket
+                    </h3>
+
+                    <span class="product-price">
+                        1,890 MAD
+                    </span>
+
+                </div>
+
+                <p>
+                    Structured outer layer inspired by
+                    mountain travel. Heavy cotton canvas,
+                    understated hardware and relaxed fit.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+
+        <article class="product-card">
+
+            <div class="product-tag">
+                Core
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=90"
+                    alt="VARENA heavyweight t shirt"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-info-top">
+
+                    <h3>
+                        Heavyweight Tee
+                    </h3>
+
+                    <span class="product-price">
+                        490 MAD
+                    </span>
+
+                </div>
+
+                <p>
+                    Dense premium cotton, relaxed silhouette
+                    and subtle VARENA embroidery.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article class="product-card">
+
+            <div class="product-tag">
+                Travel
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1400&q=90"
+                    alt="VARENA travel hoodie"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-info-top">
+
+                    <h3>
+                        VARENA Travel Hoodie
+                    </h3>
+
+                    <span class="product-price">
+                        890 MAD
+                    </span>
+
+                </div>
+
+                <p>
+                    Soft heavyweight fleece with a structured
+                    hood and minimal branding.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+
+        <article class="product-card">
+
+            <div class="product-tag">
+                Movement
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1506629905607-d9a9b7d1a6ef?auto=format&fit=crop&w=1400&q=90"
+                    alt="VARENA technical trousers"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-info-top">
+
+                    <h3>
+                        Terrain Trouser
+                    </h3>
+
+                    <span class="product-price">
+                        790 MAD
+                    </span>
+
+                </div>
+
+                <p>
+                    Relaxed technical trousers designed for
+                    movement, travel and outdoor life.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 5 -->
+
+        <article class="product-card">
+
+            <div class="product-tag">
+                Travel
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1400&q=90"
+                    alt="VARENA travel bag"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-info-top">
+
+                    <h3>
+                        Weekender
+                    </h3>
+
+                    <span class="product-price">
+                        1,490 MAD
+                    </span>
+
+                </div>
+
+                <p>
+                    Structured travel bag with generous
+                    capacity and durable construction.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 6 -->
+
+        <article class="product-card">
+
+            <div class="product-tag">
+                Signature
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=90"
+                    alt="VARENA footwear"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-info-top">
+
+                    <h3>
+                        Terrain One
+                    </h3>
+
+                    <span class="product-price">
+                        1,290 MAD
+                    </span>
+
+                </div>
+
+                <p>
+                    Everyday footwear designed around
+                    walking, travel and outdoor movement.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURE -->
+
+<section class="feature">
+
+    <div class="feature-content">
+
+        <div class="feature-number">
+            VARENA · 01
+        </div>
+
+        <h2>
+            Built for
+            distance.
+        </h2>
+
+        <h3>
+            Not fashion for one season.
+        </h3>
+
+        <p>
+            The Maison collection follows the same philosophy
+            as the retreat itself:
+
+            fewer things, better things.
+
+            Every future piece should have a reason to exist,
+            whether it is worn in the mountains, at the table
+            or travelling home.
+        </p>
+
+
+        <div class="feature-details">
+
+            <div class="feature-detail">
+                <span>Fabric</span>
+                <span>Premium natural / technical</span>
+            </div>
+
+            <div class="feature-detail">
+                <span>Palette</span>
+                <span>Stone · Sand · Olive · Charcoal</span>
+            </div>
+
+            <div class="feature-detail">
+                <span>Design</span>
+                <span>Minimal · Functional · Quiet</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ESSENTIALS -->
+
+<section class="essentials">
+
+    <div class="essentials-header">
+
+        <div class="eyebrow">
+            Objects
+        </div>
+
+        <h2>
+            Small things.
+        </h2>
+
+        <p>
+            The VARENA world should continue beyond
+            clothing. Objects that make sense at home,
+            on the road and outdoors.
+        </p>
+
+    </div>
+
+
+    <div class="essential-grid">
+
+
+        <div class="essential-card">
+
+            <span>01</span>
+
+            <h3>
+                VARENA Cap
+            </h3>
+
+            <p>
+                Structured cotton cap with
+                understated embroidery.
+            </p>
+
+            <p class="essential-price">
+                320 MAD
+            </p>
+
+        </div>
+
+
+        <div class="essential-card">
+
+            <span>02</span>
+
+            <h3>
+                Field Bottle
+            </h3>
+
+            <p>
+                Stainless steel insulated bottle
+                designed for long days outside.
+            </p>
+
+            <p class="essential-price">
+                390 MAD
+            </p>
+
+        </div>
+
+
+        <div class="essential-card">
+
+            <span>03</span>
+
+            <h3>
+                Travel Journal
+            </h3>
+
+            <p>
+                Bound notebook for routes,
+                thoughts and observations.
+            </p>
+
+            <p class="essential-price">
+                240 MAD
+            </p>
+
+        </div>
+
+
+        <div class="essential-card">
+
+            <span>04</span>
+
+            <h3>
+                Field Blanket
+            </h3>
+
+            <p>
+                Heavy woven blanket designed
+                for evenings outdoors.
+            </p>
+
+            <p class="essential-price">
+                690 MAD
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy">
+
+    <div class="eyebrow">
+        The VARENA idea
+    </div>
+
+    <h2>
+        Luxury without
+        shouting.
+    </h2>
+
+    <p>
+        The strongest pieces do not need a giant logo.
+
+        Someone should recognize VARENA through
+        the silhouette, material, restraint and feeling
+        before they even notice the name.
+    </p>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="maison-cta">
+
+    <div class="eyebrow">
+        VARENA Maison
+    </div>
+
+    <h2>
+        Take a little
+        VARENA with you.
+    </h2>
+
+    <p>
+        Prototype collection.
+        Designed for the world beyond the retreat.
+    </p>
+
+    <a
+        href="/stay"
+        class="btn light"
+    >
+        Return to VARENA
+    </a>
+
+</section>
+
+
+</body>
+</html>

@@ -1,42 +1,37 @@
 [build]
-  publish = "."
+  publish = "public"
 
 [functions]
   directory = "netlify/functions"
 
 [[redirects]]
-  from = "/"
-  to = "/public/index.html"
-  status = 200
-
-[[redirects]]
   from = "/stay"
-  to = "/pages/stay.html"
+  to = "/stay.html"
   status = 200
 
 [[redirects]]
   from = "/experiences"
-  to = "/pages/experiences.html"
+  to = "/experiences.html"
   status = 200
 
 [[redirects]]
   from = "/dining"
-  to = "/pages/dining.html"
+  to = "/dining.html"
   status = 200
 
 [[redirects]]
   from = "/maison"
-  to = "/pages/maison.html"
+  to = "/maison.html"
   status = 200
 
 [[redirects]]
   from = "/membership"
-  to = "/pages/membership.html"
+  to = "/membership.html"
   status = 200
 
 [[redirects]]
   from = "/journal"
-  to = "/pages/journal.html"
+  to = "/journal.html"
   status = 200
 
 [[redirects]]
