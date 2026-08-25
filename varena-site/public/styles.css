@@ -1076,30 +1076,59 @@ p{
 @media(max-width:650px){
 
     .nav{
-        height:62px;
-        padding:0 14px;
+        height:64px;
+        padding:0 12px;
+        gap:10px;
+        overflow:hidden;
     }
 
     .logo{
         font-size:1.25rem;
         letter-spacing:.1em;
+        flex:0 0 auto;
     }
 
     .nav nav{
-        gap:14px;
-        margin-left:12px;
-        margin-right:0;
+        display:flex;
+        flex:1 1 auto;
+        min-width:0;
+        gap:18px;
+        margin:0;
+        padding:0 4px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .nav nav::-webkit-scrollbar{
+        display:none;
     }
 
     .nav nav a{
-        font-size:.48rem;
-        letter-spacing:.07em;
+        flex:0 0 auto;
+        font-size:.55rem;
+        letter-spacing:.08em;
+        white-space:nowrap;
     }
 
-    /*
-       The navigation stays on one line.
-       Users can swipe left/right to see every item.
-    */
+    .nav-book{
+        flex:0 0 auto;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:9px 12px;
+        font-size:.5rem;
+        white-space:nowrap;
+    }
+
+    .outline{
+        display:none;
+    }
+
+    .hamb{
+        display:none;
+    }
 
     .hero{
         min-height:620px;
@@ -1236,4 +1265,455 @@ p{
         right:15px;
         bottom:15px;
     }
+}
+
+/* =========================================================
+VARENA — MOBILE ONLY FIX
+Desktop remains unchanged
+========================================================= */
+
+@media (max-width: 700px) {
+
+```
+/* ---------- GLOBAL MOBILE ---------- */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.nav {
+    height: 68px;
+    padding: 0 20px;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    font-size: 1.25rem;
+}
+
+.navlinks {
+    display: none !important;
+}
+
+.nav-book {
+    font-size: .58rem;
+    padding: 9px 12px;
+    white-space: nowrap;
+}
+
+/* ---------- HERO ---------- */
+
+.home-hero {
+    min-height: 100svh;
+    width: 100%;
+    background-position: 58% center;
+}
+
+.hero-content {
+    width: calc(100% - 40px);
+    max-width: none;
+    padding-bottom: 65px;
+}
+
+.hero-title {
+    font-size: clamp(4.2rem, 18vw, 6.5rem);
+    line-height: .72;
+    letter-spacing: -.065em;
+    margin: 20px 0 28px;
+}
+
+.hero-subtitle {
+    width: 100%;
+    max-width: 360px;
+    font-size: .76rem;
+    line-height: 1.75;
+}
+
+.hero-scroll {
+    display: none;
+}
+
+/* ---------- MANIFESTO ---------- */
+
+.manifesto {
+    padding: 100px 22px;
+}
+
+.manifesto h2 {
+    width: 100%;
+    font-size: clamp(3.2rem, 15vw, 5rem);
+    line-height: .82;
+    margin: 20px auto;
+}
+
+.manifesto p {
+    width: 100%;
+    max-width: 340px;
+    margin: 32px auto 0;
+    font-size: .78rem;
+    line-height: 1.8;
+}
+
+/* ---------- WORLD ---------- */
+
+.world {
+    padding: 95px 20px;
+}
+
+.world-header {
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+.world-header h2 {
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+    line-height: .8;
+    margin: 18px 0 25px;
+}
+
+.world-header p {
+    max-width: 340px;
+    font-size: .78rem;
+    line-height: 1.8;
+}
+
+.world-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.world-card {
+    width: 100%;
+    min-height: 470px;
+}
+
+.world-card-content {
+    padding: 25px;
+}
+
+.world-card h3 {
+    font-size: 2.8rem;
+    margin: 9px 0;
+}
+
+.world-card p {
+    max-width: 300px;
+    font-size: .7rem;
+    line-height: 1.7;
+}
+
+/* ---------- SIGNATURE ---------- */
+
+.signature {
+    width: 100%;
+    min-height: 650px;
+    padding: 90px 22px;
+    background-position: 60% center;
+}
+
+.signature-content {
+    width: 100%;
+    max-width: 360px;
+}
+
+.signature h2 {
+    font-size: clamp(4rem, 18vw, 6rem);
+    line-height: .73;
+}
+
+.signature p {
+    font-size: .78rem;
+    line-height: 1.8;
+}
+
+.signature-note {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: .68rem;
+}
+
+/* ---------- SENSORY ---------- */
+
+.sensory {
+    width: 100%;
+    padding: 90px 20px;
+}
+
+.sensory-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.sensory-image {
+    width: 100%;
+    height: 470px;
+}
+
+.sensory-content {
+    width: 100%;
+}
+
+.sensory-content h2 {
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+    line-height: .8;
+}
+
+.sensory-content p {
+    width: 100%;
+    max-width: 350px;
+    font-size: .78rem;
+    line-height: 1.8;
+}
+
+.sensory-list {
+    width: 100%;
+    margin-top: 35px;
+}
+
+.sensory-item {
+    width: 100%;
+    padding: 16px 0;
+    font-size: .62rem;
+}
+
+/* ---------- MAISON ---------- */
+
+.maison-preview {
+    width: 100%;
+    padding: 95px 20px;
+}
+
+.maison-preview-header {
+    width: 100%;
+    display: block;
+    margin-bottom: 45px;
+}
+
+.maison-preview-header h2 {
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+    line-height: .8;
+    margin: 18px 0 28px;
+}
+
+.maison-preview-header p {
+    width: 100%;
+    max-width: 340px;
+    font-size: .75rem;
+    line-height: 1.8;
+}
+
+.maison-products {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.product {
+    width: 100%;
+}
+
+.product-image {
+    width: 100%;
+    height: 420px;
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-info h3 {
+    font-size: 1.8rem;
+}
+
+/* ---------- MEMBERSHIP ---------- */
+
+.membership {
+    width: 100%;
+    padding: 100px 22px;
+}
+
+.membership h2 {
+    width: 100%;
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+    line-height: .8;
+}
+
+.membership p {
+    width: 100%;
+    max-width: 340px;
+    font-size: .78rem;
+    line-height: 1.8;
+}
+
+.membership .btn {
+    max-width: 100%;
+}
+
+/* ---------- FINAL CTA ---------- */
+
+.home-cta {
+    width: 100%;
+    min-height: 650px;
+    padding: 100px 22px;
+    background-position: 60% center;
+}
+
+.home-cta-content {
+    width: 100%;
+    max-width: 360px;
+}
+
+.home-cta h2 {
+    font-size: clamp(4rem, 18vw, 6rem);
+    line-height: .72;
+}
+
+.home-cta p {
+    width: 100%;
+    max-width: 340px;
+    font-size: .78rem;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cta-buttons .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    width: 100%;
+    padding: 60px 22px 30px;
+}
+
+.footer-top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 25px;
+    padding-bottom: 50px;
+}
+
+.footer-brand {
+    grid-column: 1 / -1;
+}
+
+.footer-brand h2 {
+    font-size: 3.5rem;
+}
+
+.footer-brand p {
+    max-width: 320px;
+    font-size: .68rem;
+}
+
+.footer-column h4 {
+    font-size: .58rem;
+}
+
+.footer-column a {
+    font-size: .65rem;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: block;
+    line-height: 1.7;
+}
+
+.footer-bottom span {
+    display: block;
+    margin-top: 8px;
+}
+```
+
+}
+
+/* =========================================================
+VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+```
+.nav {
+    padding: 0 16px;
+}
+
+.nav-book {
+    padding: 8px 10px;
+    font-size: .54rem;
+}
+
+.hero-content {
+    width: calc(100% - 32px);
+}
+
+.hero-title {
+    font-size: 4rem;
+}
+
+.manifesto,
+.world,
+.sensory,
+.maison-preview,
+.membership,
+.home-cta {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.world-card {
+    min-height: 430px;
+}
+
+.world-card h3 {
+    font-size: 2.5rem;
+}
+
+.sensory-image {
+    height: 420px;
+}
+
+.product-image {
+    height: 380px;
+}
+
+.footer-top {
+    grid-template-columns: 1fr;
+}
+
+.footer-brand {
+    grid-column: auto;
+}
+```
+
 }
