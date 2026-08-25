@@ -11,20 +11,28 @@
     --sans:Inter,Arial,sans-serif;
 }
 
-*{
+*,
+*::before,
+*::after{
     box-sizing:border-box;
 }
 
 html{
     scroll-behavior:smooth;
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
 }
 
 body{
     margin:0;
+    width:100%;
+    max-width:100%;
     background:var(--cream);
     color:var(--ink);
     font-family:var(--sans);
     font-weight:300;
+    overflow-x:hidden;
 }
 
 body.lock{
@@ -39,6 +47,11 @@ a{
 button{
     font:inherit;
     cursor:pointer;
+}
+
+img{
+    display:block;
+    max-width:100%;
 }
 
 p{
@@ -71,9 +84,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 .nav{
     height:78px;
@@ -135,9 +148,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     height:100svh;
@@ -152,6 +165,8 @@ p{
 .hero-bg{
     position:absolute;
     inset:0;
+    width:100%;
+    height:100%;
     background:
         linear-gradient(90deg,#080a08bb,#080a0822),
         linear-gradient(0deg,#080a08aa,transparent 65%),
@@ -211,9 +226,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    INTRO
-========================= */
+===================================================== */
 
 .intro{
     padding:155px 7%;
@@ -239,9 +254,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    SECTION HEAD
-========================= */
+===================================================== */
 
 .section-head{
     display:flex;
@@ -263,9 +278,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    FOUR GRID
-========================= */
+===================================================== */
 
 .four{
     display:grid;
@@ -304,9 +319,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    SPLIT SECTIONS
-========================= */
+===================================================== */
 
 .split{
     display:grid;
@@ -362,9 +377,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 .btn{
     display:inline-flex;
@@ -400,9 +415,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    ROOMS
-========================= */
+===================================================== */
 
 .rooms{
     display:grid;
@@ -413,6 +428,7 @@ p{
 .room{
     background:var(--cream);
     border:1px solid var(--line);
+    min-width:0;
 }
 
 .room-photo{
@@ -448,9 +464,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    STEPS
-========================= */
+===================================================== */
 
 .steps{
     display:grid;
@@ -483,9 +499,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    SENSORY
-========================= */
+===================================================== */
 
 .sensory{
     display:grid;
@@ -512,9 +528,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    DINING
-========================= */
+===================================================== */
 
 .dining{
     display:grid;
@@ -575,9 +591,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    PRODUCTS
-========================= */
+===================================================== */
 
 .products{
     display:grid;
@@ -587,6 +603,7 @@ p{
 
 .products article{
     background:#ded5c6;
+    min-width:0;
 }
 
 .prod-photo{
@@ -638,9 +655,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    MEMBERSHIP
-========================= */
+===================================================== */
 
 .membership{
     display:grid;
@@ -666,9 +683,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    APP
-========================= */
+===================================================== */
 
 .app-grid{
     display:grid;
@@ -714,9 +731,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    JOURNAL
-========================= */
+===================================================== */
 
 .journal{
     display:grid;
@@ -732,6 +749,7 @@ p{
     color:white;
     background-size:cover;
     background-position:center;
+    min-width:0;
 }
 
 .journal h3{
@@ -757,9 +775,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    FINAL
-========================= */
+===================================================== */
 
 .final{
     text-align:center;
@@ -778,9 +796,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer-grid{
     display:grid;
@@ -818,9 +836,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
 .modal{
     position:fixed;
@@ -880,6 +898,8 @@ p{
     background:white;
     font:.85rem var(--sans);
     color:var(--ink);
+    width:100%;
+    max-width:100%;
 }
 
 .modal-card textarea{
@@ -954,9 +974,9 @@ p{
 }
 
 
-/* =========================
+/* =====================================================
    TOAST / REVEAL
-========================= */
+===================================================== */
 
 .toast{
     position:fixed;
@@ -991,21 +1011,16 @@ p{
    TABLET
 ===================================================== */
 
-@media(max-width:950px){
+@media (max-width:950px){
 
     .nav{
         height:68px;
         padding:0 18px;
     }
 
-    /*
-       KEEP THE NAVIGATION VISIBLE ON TABLET/PHONE.
-       It can scroll horizontally instead of disappearing.
-    */
-
     .nav nav{
         display:flex;
-        flex:1;
+        flex:1 1 auto;
         min-width:0;
         gap:16px;
         margin:0 14px;
@@ -1069,32 +1084,64 @@ p{
 }
 
 
-/* =====================================================
-   PHONE
+//* =====================================================
+   PHONE — FULL MOBILE OPTIMIZATION
 ===================================================== */
 
-@media(max-width:650px){
+@media (max-width:650px){
+
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        margin:0;
+        padding:0;
+        overflow-x:hidden !important;
+    }
+
+    body{
+        position:relative;
+    }
+
+    *,
+    *::before,
+    *::after{
+        box-sizing:border-box;
+    }
+
+    img{
+        display:block;
+        max-width:100%;
+        height:auto;
+    }
+
+
+    /* =================================================
+       NAVIGATION
+    ================================================= */
 
     .nav{
+        width:100%;
         height:64px;
-        padding:0 12px;
+        padding:0 14px;
         gap:10px;
         overflow:hidden;
     }
 
     .logo{
-        font-size:1.25rem;
-        letter-spacing:.1em;
         flex:0 0 auto;
+        font-size:1.15rem;
+        letter-spacing:.08em;
     }
 
     .nav nav{
         display:flex;
         flex:1 1 auto;
         min-width:0;
-        gap:18px;
+        gap:15px;
         margin:0;
-        padding:0 4px;
+        padding:0 3px;
         overflow-x:auto;
         overflow-y:hidden;
         scrollbar-width:none;
@@ -1107,132 +1154,610 @@ p{
 
     .nav nav a{
         flex:0 0 auto;
-        font-size:.55rem;
-        letter-spacing:.08em;
+        font-size:.5rem;
+        letter-spacing:.06em;
         white-space:nowrap;
     }
 
     .nav-book{
         flex:0 0 auto;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        padding:9px 12px;
-        font-size:.5rem;
+        padding:8px 9px;
+        font-size:.48rem;
         white-space:nowrap;
     }
 
-    .outline{
-        display:none;
-    }
-
+    .outline,
     .hamb{
         display:none;
     }
 
+
+    /* =================================================
+       HERO
+    ================================================= */
+
     .hero{
-        min-height:620px;
+        width:100%;
+        height:100svh;
+        min-height:600px;
+        max-height:900px;
+        overflow:hidden;
+    }
+
+    .hero-bg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        max-width:none;
+
+        /*
+           Mobile image framing.
+           The image remains full-height but shifts
+           horizontally so the subject stays visible.
+        */
+        background-size:cover;
+        background-position:62% center;
     }
 
     .hero-inner{
-        width:90%;
-        padding-bottom:65px;
+        width:100%;
+        margin:0;
+        padding:0 20px 60px;
     }
 
     .hero h1{
-        font-size:4.7rem;
+        width:100%;
+        margin:15px 0 25px;
+
+        /*
+           Much safer mobile typography.
+        */
+        font-size:clamp(3.7rem,16vw,5.5rem);
+        line-height:.78;
+        letter-spacing:-.055em;
+
+        white-space:normal;
+        overflow-wrap:normal;
+        word-break:normal;
     }
 
-    .hero-row,
-    .section-head{
+    .hero-row{
         display:block;
+    }
+
+    .hero-row p{
+        width:100%;
+        max-width:320px;
+        margin:0;
+        font-size:.74rem;
+        line-height:1.7;
     }
 
     .hero-row .micro{
         display:block;
-        margin-top:20px;
+        margin-top:18px;
+        font-size:.53rem;
+    }
+
+    .scroll{
+        display:none;
+    }
+
+
+    /* =================================================
+       GENERAL
+    ================================================= */
+
+    .wrap{
+        width:calc(100% - 40px);
+        max-width:100%;
+        margin:0 auto;
     }
 
     .section{
-        padding:95px 0;
+        width:100%;
+        padding:85px 0;
+        overflow:hidden;
     }
 
     .intro{
-        padding:110px 7%;
+        width:100%;
+        padding:95px 20px;
+        overflow:hidden;
     }
 
     .intro h2,
     .section h2{
-        font-size:3.7rem;
+        width:100%;
+        margin:20px 0 28px;
+
+        /*
+           Smaller than desktop but still luxurious.
+        */
+        font-size:clamp(2.9rem,13vw,4.5rem);
+        line-height:.86;
+        letter-spacing:-.04em;
+
+        overflow-wrap:break-word;
+        word-break:normal;
     }
 
-    .rooms,
-    .products,
-    .four,
-    .steps,
-    .journal{
+    .intro p{
+        width:100%;
+        max-width:340px;
+        margin:28px auto 0;
+        font-size:.77rem;
+        line-height:1.8;
+    }
+
+
+    /* =================================================
+       SECTION HEAD
+    ================================================= */
+
+    .section-head{
+        display:block;
+        width:100%;
+        margin-bottom:42px;
+    }
+
+    .section-head .eyebrow{
+        font-size:.55rem;
+    }
+
+    .section-head>p{
+        width:100%;
+        max-width:330px;
+        margin-top:20px;
+        font-size:.76rem;
+        line-height:1.8;
+    }
+
+
+    /* =================================================
+       FOUR GRID
+    ================================================= */
+
+    .four{
+        width:100%;
         grid-template-columns:1fr;
     }
 
-    .four article,
-    .steps>div{
-        border-right:0!important;
+    .four article{
+        width:100%;
+        min-width:0;
+        min-height:300px;
+        padding:30px 20px;
+
+        border-right:0 !important;
         border-bottom:1px solid #ffffff1c;
     }
 
+    .four article:last-child{
+        border-bottom:0;
+    }
+
+    .four h3{
+        font-size:2.25rem;
+        line-height:1;
+    }
+
+    .four p{
+        max-width:300px;
+        font-size:.76rem;
+        line-height:1.75;
+    }
+
+
+    /* =================================================
+       SPLIT SECTIONS
+    ================================================= */
+
+    .split{
+        width:100%;
+        grid-template-columns:1fr;
+        min-height:auto;
+    }
+
+    .photo{
+        width:100%;
+        min-height:430px;
+
+        /*
+           Important:
+           Each image gets a mobile crop instead of
+           inheriting the desktop composition.
+        */
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center center;
+    }
+
+
+    /* Individual mobile image positioning */
+
+    .arch{
+        background-position:center center;
+        min-height:430px;
+    }
+
+    .wild{
+        background-position:58% center;
+        min-height:430px;
+    }
+
+    .wellness{
+        background-position:center center;
+        min-height:430px;
+    }
+
+    .training{
+        background-position:center center;
+        min-height:430px;
+    }
+
+    .scent{
+        background-position:center center;
+        min-height:430px;
+    }
+
+    .copy{
+        width:100%;
+        padding:65px 20px;
+        overflow:hidden;
+    }
+
+    .copy h2{
+        width:100%;
+        max-width:100%;
+        font-size:clamp(3rem,13vw,4.5rem);
+        line-height:.85;
+    }
+
+    .copy p{
+        width:100%;
+        max-width:340px;
+        font-size:.78rem;
+        line-height:1.8;
+    }
+
+
+    /* =================================================
+       ROOMS
+    ================================================= */
+
+    .rooms{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .room{
+        width:100%;
+        min-width:0;
+    }
+
+    .room-photo{
+        width:100%;
+        height:320px;
+        background-size:cover;
+        background-position:center center;
+    }
+
+    .room-info{
+        padding:22px;
+    }
+
+    .room-info h3{
+        font-size:2rem;
+        line-height:1;
+    }
+
+    .room-info p{
+        font-size:.76rem;
+        line-height:1.75;
+    }
+
+    .price-line{
+        font-size:.75rem;
+    }
+
+
+    /* =================================================
+       STEPS
+    ================================================= */
+
+    .steps{
+        width:100%;
+        grid-template-columns:1fr;
+    }
+
     .steps>div{
+        width:100%;
+        min-width:0;
+        padding:28px 20px;
+
+        border-right:0 !important;
         border-bottom:1px solid var(--line);
+    }
+
+    .steps>div:last-child{
+        border-bottom:0;
+    }
+
+    .steps h3{
+        font-size:2.1rem;
+        margin:35px 0 8px;
+    }
+
+    .steps p{
+        font-size:.76rem;
+        line-height:1.75;
+    }
+
+
+    /* =================================================
+       SENSORY
+    ================================================= */
+
+    .sensory{
+        width:100%;
+        grid-template-columns:1fr;
+        overflow:hidden;
+    }
+
+    .sensory-copy{
+        width:100%;
+        padding:80px 20px;
+    }
+
+    .sensory-copy h2{
+        width:100%;
+        max-width:100%;
+
+        font-size:clamp(3rem,13vw,4.5rem);
+        line-height:.84;
+        letter-spacing:-.04em;
+    }
+
+    .sensory-copy p{
+        width:100%;
+        max-width:340px;
+        font-size:.77rem;
+        line-height:1.8;
+    }
+
+
+    /* =================================================
+       DINING
+    ================================================= */
+
+    .dining{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .dining-photo{
+        width:100%;
+        min-height:440px;
+        padding:30px;
+
+        background-size:cover;
+        background-position:center center;
+    }
+
+    .dining-photo h3{
+        font-size:2.8rem;
+        line-height:.95;
+    }
+
+    .drink-card{
+        width:100%;
+        padding:35px 25px;
+    }
+
+    .drink-card h3{
+        font-size:2.5rem;
+        line-height:1;
+    }
+
+    .drink-card p{
+        font-size:.77rem;
+        line-height:1.8;
+    }
+
+    .bottle{
+        width:75px;
+        height:210px;
+    }
+
+
+    /* =================================================
+       PRODUCTS
+    ================================================= */
+
+    .products{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .products article{
+        width:100%;
+        min-width:0;
+    }
+
+    .prod-photo{
+        width:100%;
+        height:340px;
+
+        background-size:cover;
+        background-position:center center;
+    }
+
+    .prod-info{
+        padding:22px;
+    }
+
+    .prod-info h3{
+        font-size:2rem;
+        line-height:1;
+    }
+
+    .prod-info p{
+        font-size:.76rem;
+        line-height:1.75;
+    }
+
+
+    /* =================================================
+       MEMBERSHIP
+    ================================================= */
+
+    .membership{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:30px;
+        padding:60px 22px;
+        overflow:hidden;
+    }
+
+    .membership h3{
+        font-size:1.9rem;
+        line-height:1.05;
+    }
+
+    .membership p{
+        width:100%;
+        max-width:340px;
+        font-size:.77rem;
+        line-height:1.8;
+    }
+
+    .membership .btn{
+        max-width:100%;
+    }
+
+
+    /* =================================================
+       APP
+    ================================================= */
+
+    .app-grid{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .app-grid p{
+        width:100%;
+        max-width:340px;
+        font-size:.77rem;
+        line-height:1.8;
+    }
+
+    .phone{
+        width:100%;
+        margin-top:15px;
+    }
+
+    .screen{
+        width:250px;
+        height:500px;
+        max-width:90vw;
+        border-width:7px;
+        border-radius:35px;
+        padding:22px;
+    }
+
+
+    /* =================================================
+       JOURNAL
+    ================================================= */
+
+    .journal{
+        width:100%;
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .journal article{
+        width:100%;
+        min-width:0;
+        min-height:390px;
+
+        background-size:cover;
+        background-position:center center;
     }
 
     .journal article:first-child{
         grid-column:auto;
     }
 
-    .photo{
-        min-height:450px;
+    .journal h3{
+        font-size:2rem;
+        line-height:1;
     }
 
-    .split{
-        min-height:auto;
+
+    /* =================================================
+       FINAL
+    ================================================= */
+
+    .final{
+        width:100%;
+        padding:105px 20px;
+        overflow:hidden;
+        text-align:center;
     }
 
-    .copy{
-        padding:70px 8%;
+    .final h2{
+        width:100%;
+        max-width:100%;
+
+        font-size:clamp(3.5rem,16vw,5.5rem);
+        line-height:.8;
+        letter-spacing:-.045em;
+
+        overflow-wrap:break-word;
     }
 
-    .dining-photo{
-        min-height:500px;
-        padding:30px;
+    .final p{
+        width:100%;
+        max-width:340px;
+        margin:28px auto;
+
+        font-size:.77rem;
+        line-height:1.8;
     }
 
-    .dining-photo h3{
-        font-size:3rem;
-    }
 
-    .drink-card{
-        padding:35px;
-    }
-
-    .prod-photo{
-        height:350px;
-    }
-
-    .membership{
-        padding:35px 25px;
-        gap:30px;
-    }
-
-    .phone{
-        margin-top:20px;
-    }
+    /* =================================================
+       FOOTER
+    ================================================= */
 
     .footer-grid{
+        width:100%;
         grid-template-columns:1fr 1fr;
-        gap:35px 20px;
+        gap:32px 20px;
+        padding-left:0;
+        padding-right:0;
+    }
+
+    .footer-grid>div{
+        min-width:0;
+    }
+
+    .footer-grid a{
+        font-size:.68rem;
+        line-height:1.5;
     }
 
     .footer-bottom{
         display:block;
+        line-height:1.7;
     }
 
     .footer-bottom span{
@@ -1240,16 +1765,26 @@ p{
         margin-top:10px;
     }
 
+
+    /* =================================================
+       MODAL
+    ================================================= */
+
     .modal{
-        padding:12px;
+        width:100%;
+        padding:10px;
     }
 
     .modal-card{
+        width:100%;
+        max-width:100%;
+        max-height:92svh;
         padding:28px 20px;
     }
 
     .modal-card h2{
-        font-size:2.6rem;
+        font-size:2.4rem;
+        line-height:1;
     }
 
     .form-grid{
@@ -1260,460 +1795,119 @@ p{
         grid-column:auto;
     }
 
+    .modal-card input,
+    .modal-card select,
+    .modal-card textarea{
+        font-size:16px;
+    }
+
+
+    /* =================================================
+       TOAST
+    ================================================= */
+
     .toast{
         left:15px;
         right:15px;
         bottom:15px;
+        text-align:center;
     }
 }
 
-/* =========================================================
-VARENA — MOBILE ONLY FIX
-Desktop remains unchanged
-========================================================= */
-
-@media (max-width: 700px) {
-
-```
-/* ---------- GLOBAL MOBILE ---------- */
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-* {
-    max-width: 100%;
-}
-
-img {
-    max-width: 100%;
-}
-
-/* ---------- NAVIGATION ---------- */
-
-.nav {
-    height: 68px;
-    padding: 0 20px;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-
-.logo {
-    font-size: 1.25rem;
-}
-
-.navlinks {
-    display: none !important;
-}
-
-.nav-book {
-    font-size: .58rem;
-    padding: 9px 12px;
-    white-space: nowrap;
-}
-
-/* ---------- HERO ---------- */
-
-.home-hero {
-    min-height: 100svh;
-    width: 100%;
-    background-position: 58% center;
-}
-
-.hero-content {
-    width: calc(100% - 40px);
-    max-width: none;
-    padding-bottom: 65px;
-}
-
-.hero-title {
-    font-size: clamp(4.2rem, 18vw, 6.5rem);
-    line-height: .72;
-    letter-spacing: -.065em;
-    margin: 20px 0 28px;
-}
-
-.hero-subtitle {
-    width: 100%;
-    max-width: 360px;
-    font-size: .76rem;
-    line-height: 1.75;
-}
-
-.hero-scroll {
-    display: none;
-}
-
-/* ---------- MANIFESTO ---------- */
-
-.manifesto {
-    padding: 100px 22px;
-}
-
-.manifesto h2 {
-    width: 100%;
-    font-size: clamp(3.2rem, 15vw, 5rem);
-    line-height: .82;
-    margin: 20px auto;
-}
-
-.manifesto p {
-    width: 100%;
-    max-width: 340px;
-    margin: 32px auto 0;
-    font-size: .78rem;
-    line-height: 1.8;
-}
-
-/* ---------- WORLD ---------- */
-
-.world {
-    padding: 95px 20px;
-}
-
-.world-header {
-    width: 100%;
-    margin-bottom: 45px;
-}
-
-.world-header h2 {
-    font-size: clamp(3.5rem, 16vw, 5.5rem);
-    line-height: .8;
-    margin: 18px 0 25px;
-}
-
-.world-header p {
-    max-width: 340px;
-    font-size: .78rem;
-    line-height: 1.8;
-}
-
-.world-grid {
-    width: 100%;
-    grid-template-columns: 1fr;
-    gap: 14px;
-}
-
-.world-card {
-    width: 100%;
-    min-height: 470px;
-}
-
-.world-card-content {
-    padding: 25px;
-}
-
-.world-card h3 {
-    font-size: 2.8rem;
-    margin: 9px 0;
-}
-
-.world-card p {
-    max-width: 300px;
-    font-size: .7rem;
-    line-height: 1.7;
-}
-
-/* ---------- SIGNATURE ---------- */
-
-.signature {
-    width: 100%;
-    min-height: 650px;
-    padding: 90px 22px;
-    background-position: 60% center;
-}
-
-.signature-content {
-    width: 100%;
-    max-width: 360px;
-}
-
-.signature h2 {
-    font-size: clamp(4rem, 18vw, 6rem);
-    line-height: .73;
-}
-
-.signature p {
-    font-size: .78rem;
-    line-height: 1.8;
-}
-
-.signature-note {
-    width: 100%;
-    margin-top: 30px;
-    padding: 20px;
-    font-size: .68rem;
-}
-
-/* ---------- SENSORY ---------- */
-
-.sensory {
-    width: 100%;
-    padding: 90px 20px;
-}
-
-.sensory-grid {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 55px;
-}
-
-.sensory-image {
-    width: 100%;
-    height: 470px;
-}
-
-.sensory-content {
-    width: 100%;
-}
-
-.sensory-content h2 {
-    font-size: clamp(3.5rem, 16vw, 5.5rem);
-    line-height: .8;
-}
-
-.sensory-content p {
-    width: 100%;
-    max-width: 350px;
-    font-size: .78rem;
-    line-height: 1.8;
-}
-
-.sensory-list {
-    width: 100%;
-    margin-top: 35px;
-}
-
-.sensory-item {
-    width: 100%;
-    padding: 16px 0;
-    font-size: .62rem;
-}
-
-/* ---------- MAISON ---------- */
-
-.maison-preview {
-    width: 100%;
-    padding: 95px 20px;
-}
-
-.maison-preview-header {
-    width: 100%;
-    display: block;
-    margin-bottom: 45px;
-}
-
-.maison-preview-header h2 {
-    font-size: clamp(3.5rem, 16vw, 5.5rem);
-    line-height: .8;
-    margin: 18px 0 28px;
-}
-
-.maison-preview-header p {
-    width: 100%;
-    max-width: 340px;
-    font-size: .75rem;
-    line-height: 1.8;
-}
-
-.maison-products {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-}
-
-.product {
-    width: 100%;
-}
-
-.product-image {
-    width: 100%;
-    height: 420px;
-}
-
-.product-info {
-    padding: 22px;
-}
-
-.product-info h3 {
-    font-size: 1.8rem;
-}
-
-/* ---------- MEMBERSHIP ---------- */
-
-.membership {
-    width: 100%;
-    padding: 100px 22px;
-}
-
-.membership h2 {
-    width: 100%;
-    font-size: clamp(3.5rem, 16vw, 5.5rem);
-    line-height: .8;
-}
-
-.membership p {
-    width: 100%;
-    max-width: 340px;
-    font-size: .78rem;
-    line-height: 1.8;
-}
-
-.membership .btn {
-    max-width: 100%;
-}
-
-/* ---------- FINAL CTA ---------- */
-
-.home-cta {
-    width: 100%;
-    min-height: 650px;
-    padding: 100px 22px;
-    background-position: 60% center;
-}
-
-.home-cta-content {
-    width: 100%;
-    max-width: 360px;
-}
-
-.home-cta h2 {
-    font-size: clamp(4rem, 18vw, 6rem);
-    line-height: .72;
-}
-
-.home-cta p {
-    width: 100%;
-    max-width: 340px;
-    font-size: .78rem;
-    line-height: 1.8;
-}
-
-.cta-buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.cta-buttons .btn {
-    width: 100%;
-    text-align: center;
-}
-
-/* ---------- FOOTER ---------- */
-
-footer {
-    width: 100%;
-    padding: 60px 22px 30px;
-}
-
-.footer-top {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 25px;
-    padding-bottom: 50px;
-}
-
-.footer-brand {
-    grid-column: 1 / -1;
-}
-
-.footer-brand h2 {
-    font-size: 3.5rem;
-}
-
-.footer-brand p {
-    max-width: 320px;
-    font-size: .68rem;
-}
-
-.footer-column h4 {
-    font-size: .58rem;
-}
-
-.footer-column a {
-    font-size: .65rem;
-}
-
-.footer-bottom {
-    width: 100%;
-    display: block;
-    line-height: 1.7;
-}
-
-.footer-bottom span {
-    display: block;
-    margin-top: 8px;
-}
-```
-
-}
-
-/* =========================================================
-VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-```
-.nav {
-    padding: 0 16px;
-}
-
-.nav-book {
-    padding: 8px 10px;
-    font-size: .54rem;
-}
-
-.hero-content {
-    width: calc(100% - 32px);
-}
-
-.hero-title {
-    font-size: 4rem;
-}
-
-.manifesto,
-.world,
-.sensory,
-.maison-preview,
-.membership,
-.home-cta {
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-.world-card {
-    min-height: 430px;
-}
-
-.world-card h3 {
-    font-size: 2.5rem;
-}
-
-.sensory-image {
-    height: 420px;
-}
-
-.product-image {
-    height: 380px;
-}
-
-.footer-top {
-    grid-template-columns: 1fr;
-}
-
-.footer-brand {
-    grid-column: auto;
-}
-```
 
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width:380px){
+
+    .nav{
+        padding:0 9px;
+        gap:7px;
+    }
+
+    .logo{
+        font-size:1.05rem;
+    }
+
+    .nav nav{
+        gap:10px;
+    }
+
+    .nav nav a{
+        font-size:.46rem;
+    }
+
+    .nav-book{
+        padding:7px 8px;
+        font-size:.46rem;
+    }
+
+
+    .hero-inner{
+        padding-left:16px;
+        padding-right:16px;
+        padding-bottom:50px;
+    }
+
+    .hero h1{
+        font-size:3.7rem;
+    }
+
+
+    .intro{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .intro h2,
+    .section h2{
+        font-size:2.8rem;
+    }
+
+
+    .copy{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+
+    .sensory-copy{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+
+    .membership{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+
+    .final{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .final h2{
+        font-size:3.5rem;
+    }
+
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    .room-photo{
+        height:290px;
+    }
+
+    .prod-photo{
+        height:300px;
+    }
+
+    .journal article{
+        min-height:350px;
+    }
 }
